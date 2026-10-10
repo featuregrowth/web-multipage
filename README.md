@@ -28,7 +28,11 @@ web-multipage/
 ├── assets/
 │   ├── logo-mark.png                   → Logotipo FG · versión degradado (fondos claros)
 │   ├── logo-mark-light.png             → Logotipo FG · versión blanca (fondos oscuros)
-│   ├── favicon.png                     → Favicon (monograma FG)
+│   ├── favicon.ico                     → Favicon multi-tamaño (16/32/48) en pestañas
+│   ├── favicon-32.png                  → Favicon PNG 32px
+│   ├── favicon.png                     → Favicon 512px (fallback)
+│   ├── apple-touch-icon.png            → Icono para iOS (180px)
+│   ├── icon-192.png / icon-512.png     → Iconos de app (PWA)
 │   └── img/
 │       ├── servicio-growth.jpg
 │       ├── servicio-marca.jpg
