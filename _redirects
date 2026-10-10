@@ -1,0 +1,7 @@
+# Redirecciones (Netlify)
+# La sección de Noticias ahora es un hub en /noticias/
+/noticias.html    /noticias/          301
+
+# Las guías se movieron de /blog/ a /noticias/
+/blog/*           /noticias/:splat    301
+/blog             /noticias/          301

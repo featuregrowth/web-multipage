@@ -3,8 +3,8 @@
 Sitio web **multi-página** de la agencia **Feature Growth**, construido con **HTML, CSS y JavaScript puro**
 (sin frameworks ni build), listo para subir a cualquier hosting estático gratuito.
 
-Incluye una landing propia por cada servicio, página de equipo, sección de noticias (enlazada a Blogger)
-y página de contacto con redes sociales.
+Incluye una landing propia por cada servicio, página de equipo, una sección de noticias con
+guías y publicaciones propias, y página de contacto con redes sociales.
 
 ---
 
@@ -19,8 +19,17 @@ web-multipage/
 │   ├── crm-automatizacion-ia.html      → Landing CRM, Automatización & IA
 │   └── consultoria-estrategica.html    → Landing Consultoría Estratégica
 ├── equipo.html                         → Equipo fundador (con LinkedIn)
-├── noticias.html                       → Noticias (enlace a Blogger)
+├── noticias/
+│   ├── index.html                      → Noticias (hub + historial de publicaciones)
+│   ├── medir-roi-eventos-corporativos/ → Guía: ROI en eventos B2B
+│   ├── demand-gen-vs-lead-gen-b2b/     → Guía: Demand Gen vs Lead Gen
+│   ├── implementar-ga4-server-side-gcp/ → Guía: GA4 Server-Side en GCP
+│   └── optimizar-event-match-quality-meta-capi/ → Guía: Event Match Quality
+├── growth-marketing-b2b/               → Pillar: Growth Marketing B2B
+├── marketing-data-science/             → Pillar: Marketing Data Science
 ├── contacto.html                       → Contacto y redes sociales
+├── _redirects                          → Redirecciones 301 (Noticias)
+├── ver-sitio.sh                        → Lanzador local (servidor + navegador)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
@@ -124,7 +133,6 @@ Vercel, Cloudflare Pages, Surge (`npx surge web-multipage`) o Firebase Hosting.
 |------------|--------|
 | Instagram  | https://www.instagram.com/featuregrowth/ |
 | Facebook   | https://www.facebook.com/profile.php?id=61592516520817 |
-| Blogger    | https://featuregrowth.blogspot.com/ |
 | LinkedIn Fran | https://www.linkedin.com/in/francontrerasv/ |
 | LinkedIn Matías | https://www.linkedin.com/in/matias-chaud/ |
 | Email      | hola@featuregrowth.cl |

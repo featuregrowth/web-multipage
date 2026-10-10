@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sin trazabilidad digital, las empresas pierden hasta un 65% de los contactos de un evento antes de que lleguen al CRM. Guía para digitalizar eventos B2B y calcular su ROI y CAC reales." />
-  <title>Cómo Medir el ROI y CAC en Eventos Corporativos B2B · Feature Growth</title>
+  <meta name="description" content="El Event Match Quality (EMQ) califica de 1 a 10 la eficacia del envío de conversiones a Meta. Guía de parámetros de matching (Email hash, fbp, fbc, External ID) y script Python SHA256." />
+  <title>Cómo Mejorar el Event Match Quality (EMQ) en Meta CAPI · Feature Growth</title>
   <link rel="icon" href="../../assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
@@ -17,21 +17,21 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Guía para Digitalizar Eventos B2B y Medir su Retorno de Inversión",
-  "description": "Sin trazabilidad digital, las empresas pierden hasta un 65% de los contactos de un evento antes de que lleguen al CRM. Guía para digitalizar eventos B2B y calcular su ROI y CAC reales.",
+  "headline": "Guía de Optimización del Event Match Quality en la API de Conversiones",
+  "description": "El Event Match Quality (EMQ) califica de 1 a 10 la eficacia del envío de conversiones a Meta. Guía de parámetros de matching (Email hash, fbp, fbc, External ID) y script Python SHA256.",
   "inLanguage": "es",
   "author": {
     "@type": "Person",
-    "name": "Fran Contreras",
-    "jobTitle": "Cofundadora · Estrategia & Growth",
-    "url": "https://www.linkedin.com/in/francontrerasv/"
+    "name": "Matías Chaud",
+    "jobTitle": "Cofundador · Data & Tecnología",
+    "url": "https://www.linkedin.com/in/matias-chaud/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Feature Growth",
     "url": "https://featuregrowth.cl"
   },
-  "mainEntityOfPage": "https://featuregrowth.cl/blog/medir-roi-eventos-corporativos/"
+  "mainEntityOfPage": "https://featuregrowth.cl/noticias/optimizar-event-match-quality-meta-capi/"
 }
   </script>
 </head>
@@ -62,7 +62,7 @@
             </ul>
           </li>
           <li class="nav__item"><a class="nav__link" href="../../equipo.html">Equipo</a></li>
-          <li class="nav__item"><a class="nav__link is-active" href="../../noticias.html">Noticias</a></li>
+          <li class="nav__item"><a class="nav__link is-active" href="../../noticias/">Noticias</a></li>
           <li class="nav__item"><a class="nav__link" href="../../contacto.html">Contacto</a></li>
           <li class="nav__item nav__cta"><a class="btn btn--primary btn--sm" href="../../contacto.html">Agendar diagnóstico</a></li>
         </ul>
@@ -76,11 +76,11 @@
         <div class="container">
           <div class="page-hero__inner">
             <nav class="breadcrumb" aria-label="Ruta de navegación">
-              <a href="../../index.html">Inicio</a><span>/</span><a href="../../noticias.html">Noticias</a><span>/</span><span>Medir ROI en eventos</span>
+              <a href="../../index.html">Inicio</a><span>/</span><a href="../../noticias/">Noticias</a><span>/</span><span>Event Match Quality (Meta CAPI)</span>
             </nav>
-            <p class="page-hero__eyebrow">Marca · Eventos · ROI</p>
-            <h1 class="page-hero__title">Guía para Digitalizar Eventos B2B y Medir su Retorno de Inversión</h1>
-            <p class="article__byline">Por <strong>Fran</strong> · Cofundadora · Estrategia &amp; Growth · <a href="../../equipo.html">Conocer al equipo</a></p>
+            <p class="page-hero__eyebrow">Meta CAPI · EMQ · Atribución</p>
+            <h1 class="page-hero__title">Guía de Optimización del Event Match Quality en la API de Conversiones</h1>
+            <p class="article__byline">Por <strong>Matías</strong> · Cofundador · Data &amp; Tecnología · <a href="../../equipo.html">Conocer al equipo</a></p>
           </div>
         </div>
       </header>
@@ -88,44 +88,28 @@
       <section class="section">
         <div class="container prose">
       <section>
-        <h2>El problema del ROI a ciegas en eventos tradicionales</h2>
-        <p class="answer"><strong>Medir el retorno de inversión en eventos B2B tradicionales suele verse obstaculizado por la falta de trazabilidad digital. Sin la captura de First-Party Data en terreno, las empresas pierden hasta un 65% de los contactos generados antes de que ingresen al pipeline de ventas del CRM.</strong></p>
+        <h2>Parámetros de coincidencia clave (External ID, Email hash, fbp, fbc)</h2>
+        <p class="answer"><strong>El Event Match Quality (EMQ) es la métrica de Meta que califica de 1 a 10 la eficacia del envío de datos de conversión. Optimizar el EMQ exige enviar parámetros clave como Email y Teléfono hasheados en SHA256, junto con External ID, cookies fbp/fbc y datos de ubicación del cliente desde el servidor.</strong></p>
       </section>
 
       <section>
-        <h2>Fórmula para calcular el CAC real post-evento</h2>
-        <p>El Costo de Adquisición de Clientes (CAC) en eventos debe incluir la inversión operativa en terreno, la producción de experiencia y el costo publicitario de convocatoria, dividido por el total de contratos cerrados atribuidos al evento.</p>
-        <h3>Integración de QR, First-Party Data y seguimiento CRM</h3>
-        <p>Mediante acreditaciones dinámicas y códigos QR interconectados con bases de datos automatizadas, los datos capturados en el stand se sincronizan en tiempo real con el CRM y herramientas de analítica avanzada.</p>
-        <h3>Ratios de Conversión y Atribución en Eventos B2B</h3>
-        <div class="table-wrap">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th scope="col">Etapa del Recorrido</th>
-                <th scope="col">Tasa de Conversión Promedio</th>
-                <th scope="col">Porcentaje de Atribución Digital</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Asistentes registrados vs. Acreditados en terreno</td>
-                <td>58% - 68%</td>
-                <td>100% (Código QR)</td>
-              </tr>
-              <tr>
-                <td>Contactos escaneados vs. SQLs calificados</td>
-                <td>32% - 42%</td>
-                <td>90% (First-Party Data CRM)</td>
-              </tr>
-              <tr>
-                <td>Oportunidades abiertas vs. Contratos cerrados B2B</td>
-                <td>15% - 25%</td>
-                <td>85% (Atribución Multitouch)</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <h2>Script en Python para hasheo SHA256 antes del envío server-side</h2>
+        <p>A continuación se muestra la función estándar en Python para normalizar y hashear los datos del usuario antes de transmitirlos a Meta CAPI:</p>
+<pre><code>import hashlib
+
+def hash_user_data(data_string):
+    """
+    Normaliza y genera hash SHA256 para parametros de Meta CAPI (Email, Phone, City).
+    """
+    if not data_string:
+        return None
+    normalized_string = data_string.strip().lower()
+    return hashlib.sha256(normalized_string.encode('utf-8')).hexdigest()
+
+# Ejemplo de uso para parametro Email:
+raw_email = " Cliente@Empresa.com "
+hashed_email = hash_user_data(raw_email)
+# Resultado SHA256 listo para payload JSON de Meta CAPI</code></pre>
       </section>
         </div>
       </section>
@@ -133,11 +117,11 @@
       <section class="section section--tight">
         <div class="container">
           <div class="author-box">
-            <img class="author-box__avatar" src="../../assets/img/equipo-fran.jpg" alt="Fran Contreras" width="60" height="60" loading="lazy" />
+            <img class="author-box__avatar" src="../../assets/img/equipo-mati.jpg" alt="Matías Chaud" width="60" height="60" loading="lazy" />
             <div>
-              <p class="author-box__name">Fran Contreras</p>
-              <p class="author-box__role">Cofundadora · Estrategia &amp; Growth en Feature Growth</p>
-              <p class="author-box__text">Estrategia, marca y growth para empresas B2B y B2C. Convierte objetivos de negocio en campañas y experiencias medibles.</p>
+              <p class="author-box__name">Matías Chaud</p>
+              <p class="author-box__role">Cofundador · Data &amp; Tecnología en Feature Growth</p>
+              <p class="author-box__text">Ciencia de datos aplicada al marketing. Diseña arquitecturas de medición, atribución, automatización e IA.</p>
             </div>
           </div>
         </div>
@@ -151,22 +135,22 @@
           <h2 class="section__title">Recursos relacionados</h2>
         </div>
         <div class="related-grid">
-          <a class="related-card" href="../../growth-marketing-b2b/">
-            <span class="related-card__tag">Growth · B2B</span>
-            <h3 class="related-card__title">Framework de Growth Marketing B2B</h3>
-            <p class="related-card__text">Cómo construir un motor de demanda predictible.</p>
+          <a class="related-card" href="../../marketing-data-science/">
+            <span class="related-card__tag">Data Science</span>
+            <h3 class="related-card__title">Manual de Marketing Data Science</h3>
+            <p class="related-card__text">Arquitectura de datos, server-side tracking y atribución.</p>
             <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="related-card" href="../../blog/demand-gen-vs-lead-gen-b2b/">
-            <span class="related-card__tag">Demand Gen</span>
-            <h3 class="related-card__title">Demand Gen vs Lead Gen en B2B</h3>
-            <p class="related-card__text">Comparativa de métricas, objetivos y canales.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="related-card" href="../../blog/implementar-ga4-server-side-gcp/">
+          <a class="related-card" href="../../noticias/implementar-ga4-server-side-gcp/">
             <span class="related-card__tag">GA4 · GCP</span>
             <h3 class="related-card__title">GA4 Server-Side en Google Cloud</h3>
             <p class="related-card__text">Implementación paso a paso en GTM Server.</p>
+            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="related-card" href="../../noticias/demand-gen-vs-lead-gen-b2b/">
+            <span class="related-card__tag">Demand Gen</span>
+            <h3 class="related-card__title">Demand Gen vs Lead Gen en B2B</h3>
+            <p class="related-card__text">Comparativa de métricas, objetivos y canales.</p>
             <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </div>
@@ -176,8 +160,8 @@
     <section class="section cta-band">
       <div class="container">
         <p class="section__eyebrow">Siguiente paso</p>
-        <h2 class="section__title">Que tu próximo evento deje datos y ventas</h2>
-        <p class="section__lead" style="max-width:56ch;margin-inline:auto;">Conversemos cómo medir el ROI real de tus eventos, desde la acreditación hasta el negocio generado.</p>
+        <h2 class="section__title">Mejoremos tu Event Match Quality</h2>
+        <p class="section__lead" style="max-width:56ch;margin-inline:auto;">Optimicemos el envío de conversiones a Meta y recuperá señal de atribución.</p>
         <div class="cta-band__actions">
           <a class="btn btn--primary" href="../../contacto.html">Agendar diagnóstico</a>
           <a class="btn btn--outline" href="../../equipo.html">Conocer al equipo</a>
@@ -212,10 +196,10 @@
         <ul>
           <li><a href="../../growth-marketing-b2b/">Growth Marketing B2B</a></li>
           <li><a href="../../marketing-data-science/">Marketing Data Science</a></li>
-          <li><a href="../../blog/medir-roi-eventos-corporativos/">ROI en eventos B2B</a></li>
-          <li><a href="../../blog/demand-gen-vs-lead-gen-b2b/">Demand Gen vs Lead Gen</a></li>
-          <li><a href="../../blog/implementar-ga4-server-side-gcp/">GA4 Server-Side en GCP</a></li>
-          <li><a href="../../blog/optimizar-event-match-quality-meta-capi/">Event Match Quality (CAPI)</a></li>
+          <li><a href="../../noticias/medir-roi-eventos-corporativos/">ROI en eventos B2B</a></li>
+          <li><a href="../../noticias/demand-gen-vs-lead-gen-b2b/">Demand Gen vs Lead Gen</a></li>
+          <li><a href="../../noticias/implementar-ga4-server-side-gcp/">GA4 Server-Side en GCP</a></li>
+          <li><a href="../../noticias/optimizar-event-match-quality-meta-capi/">Event Match Quality (CAPI)</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -223,7 +207,7 @@
         <ul>
           <li><a href="mailto:hola@featuregrowth.cl">hola@featuregrowth.cl</a></li>
           <li><a href="../../contacto.html">Formas de contacto</a></li>
-          <li><a href="../../noticias.html">Noticias</a></li>
+          <li><a href="../../noticias/">Noticias</a></li>
         </ul>
         <div class="social-row" style="margin-top:16px;">
           <a class="social-btn" href="https://www.instagram.com/featuregrowth/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -233,10 +217,6 @@
           <a class="social-btn" href="https://www.facebook.com/profile.php?id=61592516520817" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
             Facebook
-          </a>
-          <a class="social-btn" href="https://featuregrowth.blogspot.com/" target="_blank" rel="noopener" aria-label="Blogger">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3h13A1.5 1.5 0 0 1 20 4.5v15A1.5 1.5 0 0 1 18.5 21h-13A1.5 1.5 0 0 1 4 19.5v-15zM7 7v2h10V7H7zm0 4v2h6v-2H7zm0 4v2h10v-2H7z"/></svg>
-            Blogger
           </a>
         </div>
       </div>
