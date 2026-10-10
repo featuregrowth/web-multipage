@@ -37,6 +37,7 @@ web-multipage/
 ├── _redirects                          → Redirecciones 301 (Noticias)
 ├── ver-sitio.sh                        → Lanzador local (servidor + navegador)
 ├── docs/
+│   ├── tp-punto-2-keyword-research-arquitectura.md → TP final SEO+GEO · Punto 2 (keywords y arquitectura)
 │   └── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
@@ -162,6 +163,8 @@ Vercel, Cloudflare Pages, Surge (`npx surge web-multipage`) o Firebase Hosting.
 ---
 
 ## Documentación del trabajo práctico (SEO + GEO)
+
+En **`docs/tp-punto-2-keyword-research-arquitectura.md`** está el entregable del **Punto 2 — Keyword research y arquitectura de contenidos**: marco metodológico, la matriz de **24 keywords** (intención, *business potential* y capa SEO/AEO/GEO), la arquitectura de *topic clusters* con las URLs reales y la **auditoría de cumplimiento** en el sitio.
 
 En **`docs/tp-punto-3-plan-onpage.md`** está el entregable del **Punto 3 — Plan de contenidos on-page**:
 la estructura de las 6 piezas clave del sitio (2 *pillars*, 2 artículos de **Noticias** y 2 herramientas),

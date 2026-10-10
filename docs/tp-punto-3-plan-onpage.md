@@ -1,9 +1,11 @@
 # TP Final SEO + GEO — Punto 3: Plan de contenidos on-page
 
 **Proyecto:** Feature Growth (agencia de Marketing, Data e IA B2B) · `featuregrowth.cl`
-**Alcance:** estructura de **6 piezas clave** (2 pillares + 2 artículos + 2 herramientas), 3 por perfil de autor, listas para implementar y publicar.
+**Alcance:** estructura de **6 piezas clave** (2 pillars + 2 artículos + 2 herramientas), 3 por perfil de autor, listas para implementar y publicar.
 
 > **Nota de terminología.** El plan inicial venía redactado como "blog/`/blog/`". Ese modelo se descartó: **hoy los artículos secundarios (spokes) viven en la sección Noticias (`/noticias/`)**, que funciona como hub + historial de publicaciones. En todo este documento, "artículo" equivale a una pieza dentro de Noticias.
+
+> **Arquitectura de keywords.** Estas 6 piezas forman parte del mapa de keywords y silos definido en [`docs/tp-punto-2-keyword-research-arquitectura.md`](tp-punto-2-keyword-research-arquitectura.md).
 
 ---
 
@@ -62,7 +64,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H1** | Framework de Growth Marketing B2B: Cómo Construir un Motor de Demanda Predictible |
 | **H2** | 1. ¿Qué es el Growth Marketing B2B y en qué se diferencia del marketing tradicional?<br>2. Los 4 Pilares del Sistema de Generación de Demanda de Feature Growth<br>3. Arquitectura del cluster temático y red de contenidos<br>4. Métricas de rendimiento y ratios de eficiencia B2B |
 | **H3** | · El cambio de paradigma: de la métrica de vanidad a los ingresos cualificados (SQL) |
-| **Enfoque semántico / entidades** | Growth Marketing B2B, generación de demanda (demand generation), pipeline de ventas, MQL, SQL, CAC, LTV, Payback, Win Rate, unit economics, LinkedIn Ads, Google Search, Meta Ads, CRM. |
+| **Enfoque semántico / entidades** | Growth Marketing B2B, generación de demanda (demand generation), pipeline de ventas, MQL, SQL, CAC, LTV, Payback, Win Rate, unit economics, LinkedIn Ads, Google Search, Meta Ads, CRM, SaaS, HubSpot, Salesforce. |
 | **Criterios E-E-A-T** | Firmado por **Fran Contreras** (Cofundadora · Estrategia & Growth) con byline + author-box. JSON-LD `Article` con autor, organización y fechas. Incorpora metodología propietaria (los 4 pilares) y ratios de atribución comercial. |
 | **Estrategia AEO / GEO** | Párrafo de respuesta directa (~45 palabras) tras el primer H2 (definición de Growth Marketing B2B). Tabla de KPIs B2B (LTV:CAC 3:1–5:1, Payback 5–9 meses, MQL→SQL 22–35%, Win Rate 18–28%) para forzar citación por modelos RAG. |
 | **Enlazado interno (silo)** | → `/noticias/demand-gen-vs-lead-gen-b2b/`, `/noticias/optimizar-pipeline-ventas-b2b/`, `/noticias/medir-roi-eventos-corporativos/`, `/herramientas/calculadora-presupuesto-growth/`. |
@@ -114,7 +116,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H1** | Marketing Data Science: La Guía Definitiva para la Arquitectura de Datos y Medición |
 | **H2** | 1. El fin de las cookies de terceros y el impacto en la atribución publicitaria<br>2. Arquitectura Server-Side Tracking con Google Tag Manager y GCP<br>3. Recursos del cluster temático de Data Science<br>4. Impacto cuantitativo de la recolección server-side |
 | **H3** | · Consecuencias técnicas en Meta Ads, Google Ads y TikTok Ads<br>· 5 pasos para migrar a una arquitectura server-side |
-| **Enfoque semántico / entidades** | Marketing Data Science, Server-Side Tracking, First-Party Data, Meta CAPI, GA4, GTM Server, Google Cloud Platform, BigQuery, Python, atribución, EMQ, ITP/ETP. |
+| **Enfoque semántico / entidades** | Marketing Data Science, Server-Side Tracking, First-Party Data, Meta CAPI, GA4, GTM Server, Google Cloud Platform, BigQuery, Python, atribución, EMQ, ITP/ETP, SaaS, e-commerce, LATAM. |
 | **Criterios E-E-A-T** | Firmado por **Matías Chaud** (Cofundador · Data & Tecnología) con byline + author-box. JSON-LD `Article` con autor, organización y fechas. Diagramas de arquitectura, scripts y tabla de impacto. |
 | **Estrategia AEO / GEO** | Párrafo `.answer` (~40 palabras) de definición. **Lista ordenada de 5 pasos** para migrar a server-side (optimizada para Featured Snippet de proceso). Tabla de impacto cuantitativo (+18–28% conversiones, EMQ 8.2–9.5/10, −200 ms en Core Web Vitals). |
 | **Enlazado interno (silo)** | → `/noticias/implementar-ga4-server-side-gcp/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/noticias/modelos-atribucion-marketing-python/`, `/herramientas/auditor-signal-loss-emq/`. |
@@ -130,7 +132,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H1** | Guía Técnica: Configuración de GA4 Server-Side en Google Cloud Platform |
 | **H2** | 1. Requisitos previos y arquitectura de contenedores<br>2. Pasos de implementación en el contenedor de servidor<br>3. Resultados de rendimiento y WPO |
 | **H3** | · Configuración de parámetros de cliente GA4 Server-Side |
-| **Enfoque semántico / entidades** | GA4 Server-Side, Google Cloud Platform, GTM Server, subdominio first-party, Core Web Vitals (INP/LCP), cabeceras HTTP, deduplicación de eventos. |
+| **Enfoque semántico / entidades** | GA4 Server-Side, Google Cloud Platform, GTM Server, subdominio first-party, Core Web Vitals (INP/LCP), cabeceras HTTP, deduplicación de eventos, Stape.io. |
 | **Criterios E-E-A-T** | Autoría de Matías; JSON-LD `NewsArticle` con fechas; tutorial escrito desde la experiencia práctica en ingeniería de datos, con métricas propias de latencia y recuperación. |
 | **Estrategia AEO / GEO** | Respuesta directa autocontenida (~48 palabras) en el primer apartado. **Lista ordenada (paso a paso)** para Featured Snippet de proceso y fragmentos de código (`<code>`) que los modelos técnicos citan. Cifras reproducibles (+18–28% de conversiones, −200 ms). |
 | **Enlazado interno (silo)** | → pillar `/marketing-data-science/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/herramientas/auditor-signal-loss-emq/`. |

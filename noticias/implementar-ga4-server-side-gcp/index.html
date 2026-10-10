@@ -99,6 +99,7 @@
         <h2>Pasos de implementación en el contenedor de servidor</h2>
         <p>Para evitar que los navegadores con bloqueadores de contenido filtren la recolección, el endpoint de destino debe coincidir con el dominio principal:</p>
         <p><code>track.tudominio.com  ---&gt;  contenedor GTM Server (GCP)</code></p>
+        <p>Además del hosting propio en Google Cloud Platform, existen alternativas gestionadas como <strong>Stape.io</strong> que simplifican el despliegue del contenedor server-side sin administrar la infraestructura.</p>
         <h3>Configuración de parámetros de cliente GA4 Server-Side</h3>
         <p>Estas son las cabeceras HTTP que procesa el contenedor server-side antes de reenviar el evento a las plataformas:</p>
         <pre><code>// Cabeceras HTTP minimas del contenedor Server-Side
