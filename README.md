@@ -30,6 +30,7 @@ web-multipage/
 ├── growth-marketing-b2b/               → Pillar: Growth Marketing B2B
 ├── marketing-data-science/             → Pillar: Marketing Data Science
 ├── herramientas/
+│   ├── index.html                      → Herramientas (hub)
 │   ├── calculadora-presupuesto-growth/ → Herramienta: Calculadora de presupuesto B2B
 │   └── auditor-signal-loss-emq/        → Herramienta: Auditor de señal y EMQ
 ├── contacto.html                       → Contacto y redes sociales
