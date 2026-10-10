@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Guía técnica para implementar GA4 Server-Side en Google Cloud Platform: contenedor en GTM Server, subdominio propio y validación de eventos para recuperar entre 18% y 28% de conversiones." />
+  <meta name="description" content="Guía técnica para configurar GA4 Server-Side en Google Cloud Platform: contenedor en GTM Server, subdominio propio, cabeceras HTTP y validación para recuperar entre 18% y 28% de conversiones." />
   <title>Cómo Implementar GA4 Server-Side en GCP Paso a Paso · Feature Growth</title>
   <link rel="icon" href="../../assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "Guía Técnica: Configuración de GA4 Server-Side en Google Cloud Platform",
-  "description": "Guía técnica para implementar GA4 Server-Side en Google Cloud Platform: contenedor en GTM Server, subdominio propio y validación de eventos para recuperar entre 18% y 28% de conversiones.",
+  "description": "Guía técnica para configurar GA4 Server-Side en Google Cloud Platform: contenedor en GTM Server, subdominio propio, cabeceras HTTP y validación para recuperar entre 18% y 28% de conversiones.",
   "inLanguage": "es",
   "author": {
     "@type": "Person",
@@ -89,17 +89,28 @@
         <div class="container prose">
       <section>
         <h2>Requisitos previos y arquitectura de contenedores</h2>
-        <p class="answer"><strong>Implementar GA4 Server-Side en Google Cloud Platform requiere un contenedor en Google Tag Manager Server, un subdominio propio en la misma raíz del sitio y la habilitación de un entorno App Engine para procesar los eventos HTTP sin depender del cliente.</strong></p>
+        <p class="answer"><strong>Configurar GA4 Server-Side en Google Cloud Platform requiere crear un contenedor de servidor en Google Tag Manager, vincularlo a un entorno de App Engine o Cloud Run y mapear un subdominio en la misma raíz web para enviar datos en un contexto First-Party estricto.</strong></p>
       </section>
 
       <section>
-        <h2>Paso a paso de la implementación en Google Tag Manager Server</h2>
-        <p>Para garantizar que los navegadores interpreten la solicitud como datos de primera parte (First-Party Data), la URL del cliente debe apuntar al subdominio <code>track.tudominio.com</code>.</p>
+        <h2>Pasos de implementación en el contenedor de servidor</h2>
+        <p>Para evitar que los navegadores con bloqueadores de contenido filtren la recolección, el endpoint de destino debe coincidir con el dominio principal:</p>
+        <p><code>track.tudominio.com  ---&gt;  contenedor GTM Server (GCP)</code></p>
+        <h3>Configuración de parámetros de cliente GA4 Server-Side</h3>
+        <p>Estas son las cabeceras HTTP que procesa el contenedor server-side antes de reenviar el evento a las plataformas:</p>
+        <pre><code>// Cabeceras HTTP minimas del contenedor Server-Side
+{
+  "X-Gtm-Server-Preview": "GTM-XXXXXXX",
+  "Content-Type": "text/plain;charset=UTF-8",
+  "X-Device-User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0...)",
+  "X-Forwarded-For": "201.252.X.X"
+}</code></pre>
       </section>
 
       <section>
-        <h2>Validación del envío de eventos y reducción de latencia</h2>
-        <p>La recolección Server-Side logra recuperar en promedio entre un <strong>18% y un 28% de las conversiones no detectadas</strong> por navegadores con bloqueadores de anuncios o restricciones de Safari ITP. Además, al delegar el procesamiento al servidor de Google Cloud, el tiempo de carga de scripts en el navegador se reduce en más de 200 ms, mejorando las métricas de Core Web Vitals (INP y LCP).</p>
+        <h2>Resultados de rendimiento y WPO</h2>
+        <p>Delegar el procesamiento de etiquetas al servidor reduce el JavaScript ejecutado en el navegador en más de 120 KB, optimizando directamente las métricas de <strong>Interaction to Next Paint (INP)</strong> y <strong>Largest Contentful Paint (LCP)</strong> evaluadas por Google.</p>
+        <p>Para verificar la salud de tu setup, ejecutá nuestro <a href="../../herramientas/auditor-signal-loss-emq/">Auditor de pérdida de señal</a> o volvé al <a href="../../marketing-data-science/">Manual de Marketing Data Science</a>.</p>
       </section>
         </div>
       </section>
@@ -129,19 +140,19 @@
             <span class="related-card__tag">Data Science</span>
             <h3 class="related-card__title">Manual de Marketing Data Science</h3>
             <p class="related-card__text">Arquitectura de datos, server-side tracking y atribución.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="link-arrow">Abrir <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
           <a class="related-card" href="../../noticias/optimizar-event-match-quality-meta-capi/">
             <span class="related-card__tag">Meta CAPI</span>
             <h3 class="related-card__title">Optimizar el Event Match Quality (EMQ)</h3>
             <p class="related-card__text">Parámetros de matching y hasheo SHA256.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="link-arrow">Abrir <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="related-card" href="../../noticias/medir-roi-eventos-corporativos/">
-            <span class="related-card__tag">Eventos · ROI</span>
-            <h3 class="related-card__title">Medir el ROI y CAC en eventos B2B</h3>
-            <p class="related-card__text">Digitalizar eventos corporativos y calcular su retorno real.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="related-card" href="../../herramientas/auditor-signal-loss-emq/">
+            <span class="related-card__tag">Herramienta · Matías</span>
+            <h3 class="related-card__title">Auditor de pérdida de señal y EMQ</h3>
+            <p class="related-card__text">Diagnóstico técnico de tracking y puntuación EMQ.</p>
+            <span class="link-arrow">Abrir <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </div>
       </div>
@@ -186,10 +197,9 @@
         <ul>
           <li><a href="../../growth-marketing-b2b/">Growth Marketing B2B</a></li>
           <li><a href="../../marketing-data-science/">Marketing Data Science</a></li>
-          <li><a href="../../noticias/medir-roi-eventos-corporativos/">ROI en eventos B2B</a></li>
-          <li><a href="../../noticias/demand-gen-vs-lead-gen-b2b/">Demand Gen vs Lead Gen</a></li>
-          <li><a href="../../noticias/implementar-ga4-server-side-gcp/">GA4 Server-Side en GCP</a></li>
-          <li><a href="../../noticias/optimizar-event-match-quality-meta-capi/">Event Match Quality (CAPI)</a></li>
+          <li><a href="../../herramientas/calculadora-presupuesto-growth/">Calculadora de presupuesto B2B</a></li>
+          <li><a href="../../herramientas/auditor-signal-loss-emq/">Auditor de señal y EMQ</a></li>
+          <li><a href="../../noticias/">Todas las publicaciones</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -201,7 +211,7 @@
         </ul>
         <div class="social-row" style="margin-top:16px;">
           <a class="social-btn" href="https://www.instagram.com/featuregrowth/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.07 4.7c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.44-.9-.84-1.3-.4-.4-.8-.64-1.3-.84-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.9.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.07 4.7c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.44-.9-.84-1.3-.4-.4-.8-.64-1.3-.84-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
             Instagram
           </a>
           <a class="social-btn" href="https://www.facebook.com/profile.php?id=61592516520817" target="_blank" rel="noopener" aria-label="Facebook">

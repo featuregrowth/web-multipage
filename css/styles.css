@@ -948,3 +948,68 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .post-item__date { padding-top: 0; }
   .post-item__cta { align-self: flex-start; }
 }
+
+/* ============================== Herramientas (formularios) ============================== */
+.tool-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px 22px;
+  background: var(--white);
+  border: 1px solid var(--neutro);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow-sm);
+  margin: 6px 0 28px;
+}
+.tool-form--narrow { max-width: 560px; }
+.tool-form .field { display: flex; flex-direction: column; gap: 7px; }
+.tool-form label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: .82rem;
+  color: var(--petroleo);
+}
+.tool-form input {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--grafito);
+  background: var(--blanco);
+  border: 1px solid var(--neutro);
+  border-radius: 10px;
+  padding: 12px 14px;
+  width: 100%;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.tool-form input:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(31, 139, 128, .16);
+}
+.tool-form .btn { grid-column: 1 / -1; justify-self: start; }
+.tool-form .tool-note { grid-column: 1 / -1; margin: 0; font-size: .88rem; color: var(--teal); }
+
+.tool-results {
+  background: var(--petroleo);
+  border-radius: var(--radius);
+  padding: 28px 30px;
+  color: var(--blanco);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 28px;
+}
+.tool-results__title { color: var(--white); font-size: 1.2rem; margin-bottom: 18px; }
+.tool-results__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 28px; }
+.tool-results__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid rgba(240, 255, 254, .16);
+  padding-bottom: 10px;
+}
+.tool-results__row span { font-size: .82rem; color: rgba(240, 255, 254, .75); }
+.tool-results__row strong { font-family: var(--font-display); font-size: 1.3rem; color: var(--teal-claro); }
+.tool-results .tool-note { margin: 20px 0 0; font-size: .82rem; color: rgba(240, 255, 254, .65); }
+
+@media (max-width: 760px) {
+  .tool-form { grid-template-columns: 1fr; }
+  .tool-results__grid { grid-template-columns: 1fr; }
+}

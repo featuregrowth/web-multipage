@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Noticias y publicaciones de Feature Growth: guías de growth marketing B2B, marketing data science, analítica e inteligencia artificial aplicada a los negocios." />
+  <meta name="description" content="Noticias y publicaciones de Feature Growth: guías de growth marketing B2B, marketing data science, analítica, inteligencia artificial y herramientas interactivas para tu negocio." />
   <title>Noticias · Feature Growth</title>
   <link rel="icon" href="../assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
@@ -61,7 +61,7 @@
           <p class="page-hero__text">Publicamos guías, casos y metodologías sobre marketing, analítica e inteligencia artificial aplicada a los negocios. Todo el contenido vive acá, en Noticias.</p>
           <div class="hero__actions">
             <a class="btn btn--light" href="#publicaciones">Ver publicaciones</a>
-            <a class="btn btn--ghost" href="../contacto.html">Hablar con el equipo</a>
+            <a class="btn btn--ghost" href="#herramientas">Ver herramientas</a>
           </div>
         </div>
       </div>
@@ -79,14 +79,14 @@
         <!-- Destacado -->
         <article class="post-featured reveal">
           <div class="post-featured__media">
-            <img src="../assets/img/servicio-crm.jpg" alt="Diagrama de flujo de datos y automatización en pantalla" width="916" height="630" loading="lazy" />
+            <img src="../assets/img/servicio-crm.jpg" alt="Modelado de datos y atribución en pantalla" width="916" height="630" loading="lazy" />
           </div>
           <div class="post-featured__body">
-            <span class="post-tag">Destacado · Meta CAPI</span>
-            <h3 class="post-featured__title"><a href="optimizar-event-match-quality-meta-capi/">Cómo optimizar el Event Match Quality (EMQ) en Meta CAPI</a></h3>
-            <p class="post-featured__excerpt">El EMQ califica de 1 a 10 la eficacia de tus conversiones. Te mostramos cómo enviar Email y Teléfono hasheados en SHA256, junto con External ID y las cookies fbp/fbc, desde el servidor.</p>
-            <p class="post-meta">Por <span class="post-meta__author">Matías Chaud</span> · <time datetime="2026-10-09">9 Oct 2026</time></p>
-            <a class="link-arrow" href="optimizar-event-match-quality-meta-capi/">Leer guía
+            <span class="post-tag">Destacado · Atribución · Python</span>
+            <h3 class="post-featured__title"><a href="modelos-atribucion-marketing-python/">Modelos de atribución de marketing con Python: Markov y Shapley</a></h3>
+            <p class="post-featured__excerpt">Los modelos First Touch / Last Touch distorsionan la rentabilidad de canal. Implementá atribución data-driven con Cadenas de Markov y Vectores de Shapley sobre datos de GA4 en BigQuery.</p>
+            <p class="post-meta">Por <span class="post-meta__author">Matías Chaud</span> · <time datetime="2026-10-10">10 Oct 2026</time></p>
+            <a class="link-arrow" href="modelos-atribucion-marketing-python/">Leer guía
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
           </div>
@@ -95,11 +95,37 @@
         <!-- Lista -->
         <div class="post-list">
           <article class="post-item reveal">
+            <time class="post-item__date" datetime="2026-10-09">9 Oct 2026</time>
+            <div class="post-item__body">
+              <span class="post-tag">Meta CAPI</span>
+              <h3 class="post-item__title"><a href="optimizar-event-match-quality-meta-capi/">Cómo optimizar el Event Match Quality (EMQ) en Meta CAPI</a></h3>
+              <p class="post-item__excerpt">El EMQ califica de 1 a 10 tus conversiones. Cómo enviar Email y Teléfono hasheados en SHA256, con External ID y las cookies fbp/fbc, desde el servidor.</p>
+              <p class="post-meta">Por <span class="post-meta__author">Matías Chaud</span></p>
+            </div>
+            <a class="post-item__cta link-arrow" href="optimizar-event-match-quality-meta-capi/">Leer
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="post-item reveal">
+            <time class="post-item__date" datetime="2026-10-07">7 Oct 2026</time>
+            <div class="post-item__body">
+              <span class="post-tag">Pipeline · Ventas</span>
+              <h3 class="post-item__title"><a href="optimizar-pipeline-ventas-b2b/">Cómo optimizar la velocidad del pipeline de ventas B2B</a></h3>
+              <p class="post-item__excerpt">Fórmula de velocidad comercial, 3 palancas para reducir el ciclo de venta y su impacto medible en el Win Rate.</p>
+              <p class="post-meta">Por <span class="post-meta__author">Fran Contreras</span></p>
+            </div>
+            <a class="post-item__cta link-arrow" href="optimizar-pipeline-ventas-b2b/">Leer
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </article>
+
+          <article class="post-item reveal">
             <time class="post-item__date" datetime="2026-09-28">28 Sep 2026</time>
             <div class="post-item__body">
               <span class="post-tag">Analítica · Server-Side</span>
               <h3 class="post-item__title"><a href="implementar-ga4-server-side-gcp/">Cómo implementar GA4 Server-Side en Google Cloud</a></h3>
-              <p class="post-item__excerpt">Requisitos, contenedor en GTM Server y validación de eventos para recuperar entre un 18% y un 28% de las conversiones no detectadas.</p>
+              <p class="post-item__excerpt">Requisitos, contenedor en GTM Server, cabeceras HTTP y validación para recuperar entre un 18% y un 28% de las conversiones no detectadas.</p>
               <p class="post-meta">Por <span class="post-meta__author">Matías Chaud</span></p>
             </div>
             <a class="post-item__cta link-arrow" href="implementar-ga4-server-side-gcp/">Leer
@@ -162,8 +188,37 @@
       </div>
     </section>
 
+    <!-- HERRAMIENTAS -->
+    <section class="section section--alt" id="herramientas">
+      <div class="container">
+        <div class="section__head section__head--center">
+          <p class="section__eyebrow">Herramientas interactivas</p>
+          <h2 class="section__title">Herramientas gratuitas</h2>
+          <p class="section__lead">Recursos de acceso libre para diagnosticar tu inversión y la salud de tu medición.</p>
+        </div>
+        <div class="grid-2">
+          <a class="related-card reveal" href="../herramientas/calculadora-presupuesto-growth/">
+            <span class="related-card__tag">Herramienta · Fran</span>
+            <h3 class="related-card__title">Calculadora de presupuesto y ROI B2B</h3>
+            <p class="related-card__text">Simulá el pipeline, la inversión publicitaria y el CAC objetivo según tu meta de facturación.</p>
+            <span class="link-arrow">Abrir herramienta
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+          <a class="related-card reveal" href="../herramientas/auditor-signal-loss-emq/">
+            <span class="related-card__tag">Herramienta · Matías</span>
+            <h3 class="related-card__title">Auditor de pérdida de señal y EMQ</h3>
+            <p class="related-card__text">Diagnóstico técnico de tracking, bloqueo por adblockers y puntuación Event Match Quality.</p>
+            <span class="link-arrow">Abrir herramienta
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- TEMAS -->
-    <section class="section section--alt">
+    <section class="section">
       <div class="container">
         <div class="section__head section__head--center">
           <p class="section__eyebrow">Temas que escribimos</p>
@@ -225,10 +280,9 @@
         <ul>
           <li><a href="../growth-marketing-b2b/">Growth Marketing B2B</a></li>
           <li><a href="../marketing-data-science/">Marketing Data Science</a></li>
-          <li><a href="medir-roi-eventos-corporativos/">ROI en eventos B2B</a></li>
-          <li><a href="demand-gen-vs-lead-gen-b2b/">Demand Gen vs Lead Gen</a></li>
-          <li><a href="implementar-ga4-server-side-gcp/">GA4 Server-Side en GCP</a></li>
-          <li><a href="optimizar-event-match-quality-meta-capi/">Event Match Quality (CAPI)</a></li>
+          <li><a href="../herramientas/calculadora-presupuesto-growth/">Calculadora de presupuesto B2B</a></li>
+          <li><a href="../herramientas/auditor-signal-loss-emq/">Auditor de señal y EMQ</a></li>
+          <li><a href="../noticias/">Todas las publicaciones</a></li>
         </ul>
       </div>
       <div class="footer__col">

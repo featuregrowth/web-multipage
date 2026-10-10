@@ -17,7 +17,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Guía de Optimización del Event Match Quality en la API de Conversiones",
+  "headline": "Guía de Optimización del Event Match Quality (EMQ) en la API de Conversiones",
   "description": "El Event Match Quality (EMQ) califica de 1 a 10 la eficacia del envío de conversiones a Meta. Guía de parámetros de matching (Email hash, fbp, fbc, External ID) y script Python SHA256.",
   "inLanguage": "es",
   "author": {
@@ -79,7 +79,7 @@
               <a href="../../index.html">Inicio</a><span>/</span><a href="../../noticias/">Noticias</a><span>/</span><span>Event Match Quality (Meta CAPI)</span>
             </nav>
             <p class="page-hero__eyebrow">Meta CAPI · EMQ · Atribución</p>
-            <h1 class="page-hero__title">Guía de Optimización del Event Match Quality en la API de Conversiones</h1>
+            <h1 class="page-hero__title">Guía de Optimización del Event Match Quality (EMQ) en la API de Conversiones</h1>
             <p class="article__byline">Por <strong>Matías</strong> · Cofundador · Data &amp; Tecnología · <a href="../../equipo.html">Conocer al equipo</a></p>
           </div>
         </div>
@@ -88,28 +88,47 @@
       <section class="section">
         <div class="container prose">
       <section>
-        <h2>Parámetros de coincidencia clave (External ID, Email hash, fbp, fbc)</h2>
-        <p class="answer"><strong>El Event Match Quality (EMQ) es la métrica de Meta que califica de 1 a 10 la eficacia del envío de datos de conversión. Optimizar el EMQ exige enviar parámetros clave como Email y Teléfono hasheados en SHA256, junto con External ID, cookies fbp/fbc y datos de ubicación del cliente desde el servidor.</strong></p>
+        <h2>¿Qué es el Event Match Quality (EMQ) de Meta Ads?</h2>
+        <p class="answer"><strong>El Event Match Quality (EMQ) es una puntuación de 1 a 10 con la que Meta evalúa la capacidad de asociar los eventos de conversión enviados con usuarios reales de la plataforma. Subir el EMQ requiere enviar datos del cliente hasheados en SHA256 junto con las cookies fbp y fbc y el External ID desde el servidor.</strong></p>
       </section>
 
       <section>
-        <h2>Script en Python para hasheo SHA256 antes del envío server-side</h2>
-        <p>A continuación se muestra la función estándar en Python para normalizar y hashear los datos del usuario antes de transmitirlos a Meta CAPI:</p>
+        <h2>Script de normalización y hasheo SHA256 en Python</h2>
+        <p>Este es el código estandarizado para procesar de forma segura los parámetros del usuario antes de transmitirlos en el JSON payload de la API de Conversiones:</p>
 <pre><code>import hashlib
 
-def hash_user_data(data_string):
+def normalize_and_hash(parameter_value):
     """
-    Normaliza y genera hash SHA256 para parametros de Meta CAPI (Email, Phone, City).
+    Normaliza y genera hash SHA256 conforme a los requerimientos de Meta CAPI.
     """
-    if not data_string:
+    if not parameter_value:
         return None
-    normalized_string = data_string.strip().lower()
-    return hashlib.sha256(normalized_string.encode('utf-8')).hexdigest()
+    # Paso 1: Eliminar espacios y convertir a minusculas
+    clean_value = parameter_value.strip().lower()
+    # Paso 2: Generar digest SHA256
+    return hashlib.sha256(clean_value.encode('utf-8')).hexdigest()
 
-# Ejemplo de uso para parametro Email:
-raw_email = " Cliente@Empresa.com "
-hashed_email = hash_user_data(raw_email)
-# Resultado SHA256 listo para payload JSON de Meta CAPI</code></pre>
+# Preparacion del payload para Meta CAPI desde el servidor:
+user_data_payload = {
+    "em": normalize_and_hash(" Juan.Perez@Empresa.com "),
+    "ph": normalize_and_hash(" +54 9 11 1234 5678 "),
+    "fn": normalize_and_hash("Juan"),
+    "ln": normalize_and_hash("Perez"),
+    "external_id": normalize_and_hash("USR-89421")
+}
+
+print(user_data_payload)
+# Salida: {'em': 'a1b2c3d4...', 'ph': '...', 'fn': '...', 'ln': '...', 'external_id': '...'}</code></pre>
+      </section>
+
+      <section>
+        <h2>Checklist para alcanzar un EMQ superior a 8.5/10</h2>
+        <ul>
+          <li>Transmitir de forma obligatoria las cookies de navegador <code>_fbp</code> y <code>_fbc</code> extraídas del encabezado HTTP.</li>
+          <li>Inyectar el parámetro <code>external_id</code> del cliente sincronizado con el ID único del CRM o la base de datos.</li>
+          <li>Asegurar la coincidencia exacta de los nombres de eventos (ej. <code>Purchase</code>, <code>Lead</code>) entre el Pixel y CAPI para permitir la deduplicación con <code>event_id</code>.</li>
+        </ul>
+        <p>Comprobá la puntuación técnica de tu sitio en nuestro <a href="../../herramientas/auditor-signal-loss-emq/">Auditor de pérdida de señal</a> o consultá la guía de <a href="../../noticias/implementar-ga4-server-side-gcp/">GA4 Server-Side</a>.</p>
       </section>
         </div>
       </section>
@@ -139,19 +158,19 @@ hashed_email = hash_user_data(raw_email)
             <span class="related-card__tag">Data Science</span>
             <h3 class="related-card__title">Manual de Marketing Data Science</h3>
             <p class="related-card__text">Arquitectura de datos, server-side tracking y atribución.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            <span class="link-arrow">Abrir <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="related-card" href="../../noticias/implementar-ga4-server-side-gcp/">
-            <span class="related-card__tag">GA4 · GCP</span>
-            <h3 class="related-card__title">GA4 Server-Side en Google Cloud</h3>
-            <p class="related-card__text">Implementación paso a paso en GTM Server.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="related-card" href="../../noticias/modelos-atribucion-marketing-python/">
+            <span class="related-card__tag">Atribución · Python</span>
+            <h3 class="related-card__title">Modelos de atribución con Markov y Shapley</h3>
+            <p class="related-card__text">Atribución basada en datos con Python y BigQuery.</p>
+            <span class="link-arrow">Abrir <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
-          <a class="related-card" href="../../noticias/demand-gen-vs-lead-gen-b2b/">
-            <span class="related-card__tag">Demand Gen</span>
-            <h3 class="related-card__title">Demand Gen vs Lead Gen en B2B</h3>
-            <p class="related-card__text">Comparativa de métricas, objetivos y canales.</p>
-            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <a class="related-card" href="../../herramientas/auditor-signal-loss-emq/">
+            <span class="related-card__tag">Herramienta · Matías</span>
+            <h3 class="related-card__title">Auditor de pérdida de señal y EMQ</h3>
+            <p class="related-card__text">Diagnóstico técnico de tracking y puntuación EMQ.</p>
+            <span class="link-arrow">Abrir <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </a>
         </div>
       </div>
@@ -196,10 +215,9 @@ hashed_email = hash_user_data(raw_email)
         <ul>
           <li><a href="../../growth-marketing-b2b/">Growth Marketing B2B</a></li>
           <li><a href="../../marketing-data-science/">Marketing Data Science</a></li>
-          <li><a href="../../noticias/medir-roi-eventos-corporativos/">ROI en eventos B2B</a></li>
-          <li><a href="../../noticias/demand-gen-vs-lead-gen-b2b/">Demand Gen vs Lead Gen</a></li>
-          <li><a href="../../noticias/implementar-ga4-server-side-gcp/">GA4 Server-Side en GCP</a></li>
-          <li><a href="../../noticias/optimizar-event-match-quality-meta-capi/">Event Match Quality (CAPI)</a></li>
+          <li><a href="../../herramientas/calculadora-presupuesto-growth/">Calculadora de presupuesto B2B</a></li>
+          <li><a href="../../herramientas/auditor-signal-loss-emq/">Auditor de señal y EMQ</a></li>
+          <li><a href="../../noticias/">Todas las publicaciones</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -211,7 +229,7 @@ hashed_email = hash_user_data(raw_email)
         </ul>
         <div class="social-row" style="margin-top:16px;">
           <a class="social-btn" href="https://www.instagram.com/featuregrowth/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.07 4.7c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.44-.9-.84-1.3-.4-.4-.8-.64-1.3-.84-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.9.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.07 4.7c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.44-.9-.84-1.3-.4-.4-.8-.64-1.3-.84-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
             Instagram
           </a>
           <a class="social-btn" href="https://www.facebook.com/profile.php?id=61592516520817" target="_blank" rel="noopener" aria-label="Facebook">

@@ -23,17 +23,23 @@ web-multipage/
 │   ├── index.html                      → Noticias (hub + historial de publicaciones)
 │   ├── medir-roi-eventos-corporativos/ → Guía: ROI en eventos B2B
 │   ├── demand-gen-vs-lead-gen-b2b/     → Guía: Demand Gen vs Lead Gen
+│   ├── optimizar-pipeline-ventas-b2b/  → Guía: Velocidad del pipeline B2B
 │   ├── implementar-ga4-server-side-gcp/ → Guía: GA4 Server-Side en GCP
-│   └── optimizar-event-match-quality-meta-capi/ → Guía: Event Match Quality
+│   ├── optimizar-event-match-quality-meta-capi/ → Guía: Event Match Quality
+│   └── modelos-atribucion-marketing-python/ → Guía: Atribución (Markov/Shapley)
 ├── growth-marketing-b2b/               → Pillar: Growth Marketing B2B
 ├── marketing-data-science/             → Pillar: Marketing Data Science
+├── herramientas/
+│   ├── calculadora-presupuesto-growth/ → Herramienta: Calculadora de presupuesto B2B
+│   └── auditor-signal-loss-emq/        → Herramienta: Auditor de señal y EMQ
 ├── contacto.html                       → Contacto y redes sociales
 ├── _redirects                          → Redirecciones 301 (Noticias)
 ├── ver-sitio.sh                        → Lanzador local (servidor + navegador)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
-│   └── main.js                         → Menú móvil, scroll, animaciones, año dinámico
+│   ├── main.js                         → Menú móvil, scroll, animaciones, año dinámico
+│   └── tools.js                        → Lógica de la calculadora y el auditor
 ├── assets/
 │   ├── logo-mark.png                   → Logotipo FG · versión degradado (fondos claros)
 │   ├── logo-mark-light.png             → Logotipo FG · versión blanca (fondos oscuros)
