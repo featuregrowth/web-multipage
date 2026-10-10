@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="El fin de las cookies reduce hasta un 30% la precisión de atribución. El Marketing Data Science reestructura la recolección hacia servidores propios y modelos matemáticos. Guía de arquitectura de datos." />
+  <title>Manual de Marketing Data Science y Server-Side Tracking (2026) · Feature Growth</title>
+  <link rel="icon" href="../assets/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <noscript><style>.reveal{opacity:1!important;transform:none!important;}</style></noscript>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Marketing Data Science: La Guía Definitiva para la Arquitectura de Datos",
+  "description": "El fin de las cookies reduce hasta un 30% la precisión de atribución. El Marketing Data Science reestructura la recolección hacia servidores propios y modelos matemáticos. Guía de arquitectura de datos.",
+  "inLanguage": "es",
+  "author": {
+    "@type": "Person",
+    "name": "Matías Chaud",
+    "jobTitle": "Cofundador · Data & Tecnología",
+    "url": "https://www.linkedin.com/in/matias-chaud/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Feature Growth",
+    "url": "https://featuregrowth.cl"
+  },
+  "mainEntityOfPage": "https://featuregrowth.cl/marketing-data-science/"
+}
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="container header__inner">
+      <a href="../index.html" class="logo" aria-label="Feature Growth, inicio">
+        <img class="logo__mark" src="../assets/logo-mark.png" alt="" width="41" height="44" />
+        <span class="logo__word">
+          <span class="logo__name">FEATURE GROWTH</span>
+          <span class="logo__tag">Marketing | Data | IA</span>
+        </span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="../index.html">Inicio</a></li>
+          <li class="nav__item nav__item--has-menu">
+            <a class="nav__link" href="../index.html#servicios">Servicios</a>
+            <ul class="nav__submenu">
+              <li><a href="../servicios/growth-performance.html">Growth &amp; Performance</a></li>
+              <li><a href="../servicios/marca-eventos.html">Marca &amp; Eventos</a></li>
+              <li><a href="../servicios/crm-automatizacion-ia.html">CRM, Automatización &amp; IA</a></li>
+              <li><a href="../servicios/consultoria-estrategica.html">Consultoría Estratégica</a></li>
+            </ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="../equipo.html">Equipo</a></li>
+          <li class="nav__item"><a class="nav__link is-active" href="../noticias.html">Noticias</a></li>
+          <li class="nav__item"><a class="nav__link" href="../contacto.html">Contacto</a></li>
+          <li class="nav__item nav__cta"><a class="btn btn--primary btn--sm" href="../contacto.html">Agendar diagnóstico</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="article">
+      <header class="page-hero">
+        <div class="container">
+          <div class="page-hero__inner">
+            <nav class="breadcrumb" aria-label="Ruta de navegación">
+              <a href="../index.html">Inicio</a><span>/</span><a href="../noticias.html">Noticias</a><span>/</span><span>Marketing Data Science</span>
+            </nav>
+            <p class="page-hero__eyebrow">Data Science · Tracking · IA</p>
+            <h1 class="page-hero__title">Marketing Data Science: La Guía Definitiva para la Arquitectura de Datos</h1>
+            <p class="article__byline">Por <strong>Matías</strong> · Cofundador · Data &amp; Tecnología · <a href="../equipo.html">Conocer al equipo</a></p>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <div class="container prose">
+      <section>
+        <h2>El fin de las cookies y el impacto en el ROI publicitario</h2>
+        <p class="answer"><strong>La pérdida de señal publicitaria provocada por el fin de las cookies de terceros y las restricciones de privacidad reduce hasta un 30% la precisión de atribución. El Marketing Data Science soluciona este problema reestructurando la recolección de datos hacia servidores propios y modelos matemáticos de atribución.</strong></p>
+      </section>
+
+      <section>
+        <h2>La solución técnica: Server-Side Tracking y First-Party Data</h2>
+        <h3>Flujo de datos: Del navegador al contenedor de servidor</h3>
+        <p>En lugar de enviar eventos directamente desde el navegador del usuario hacia Meta o Google, las interacciones pasan primero por un servidor propio (Google Cloud Platform / GCP). Esto elimina el bloqueo de adblockers y garantiza el control sobre la información transmitida.</p>
+        <h3>5 Pasos para Migrar a una Arquitectura Server-Side</h3>
+        <ol>
+          <li>Configurar un subdominio personalizado de seguimiento (ej. <code>track.tudominio.com</code>).</li>
+          <li>Desplegar un contenedor de servidor en Google Tag Manager Server-Side sobre Google Cloud.</li>
+          <li>Redirigir las etiquetas de Google Analytics 4 (GA4) hacia el endpoint server-side.</li>
+          <li>Implementar la API de Conversiones (Meta CAPI y TikTok CAPI) desde el servidor.</li>
+          <li>Validar la deduplicación de eventos y monitorear la puntuación de Event Match Quality (EMQ).</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Modelado estadístico de atribución con Python y SQL</h2>
+        <p>La combinación de datos provenientes del CRM con exportaciones de GA4 en BigQuery permite construir modelos de cadenas de Markov y vectores Shapley en Python para asignar valor real a cada punto de contacto en el embudo comercial.</p>
+      </section>
+        </div>
+      </section>
+
+      <section class="section section--tight">
+        <div class="container">
+          <div class="author-box">
+            <img class="author-box__avatar" src="../assets/img/equipo-mati.jpg" alt="Matías Chaud" width="60" height="60" loading="lazy" />
+            <div>
+              <p class="author-box__name">Matías Chaud</p>
+              <p class="author-box__role">Cofundador · Data &amp; Tecnología en Feature Growth</p>
+              <p class="author-box__text">Ciencia de datos aplicada al marketing. Diseña arquitecturas de medición, atribución, automatización e IA.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <p class="section__eyebrow">Seguir leyendo</p>
+          <h2 class="section__title">Recursos relacionados</h2>
+        </div>
+        <div class="related-grid">
+          <a class="related-card" href="../blog/implementar-ga4-server-side-gcp/">
+            <span class="related-card__tag">GA4 · GCP</span>
+            <h3 class="related-card__title">GA4 Server-Side en Google Cloud</h3>
+            <p class="related-card__text">Implementación paso a paso en GTM Server.</p>
+            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="related-card" href="../blog/optimizar-event-match-quality-meta-capi/">
+            <span class="related-card__tag">Meta CAPI</span>
+            <h3 class="related-card__title">Optimizar el Event Match Quality (EMQ)</h3>
+            <p class="related-card__text">Parámetros de matching y hasheo SHA256.</p>
+            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="related-card" href="../growth-marketing-b2b/">
+            <span class="related-card__tag">Growth · B2B</span>
+            <h3 class="related-card__title">Framework de Growth Marketing B2B</h3>
+            <p class="related-card__text">Cómo construir un motor de demanda predictible.</p>
+            <span class="link-arrow">Leer guía <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-band">
+      <div class="container">
+        <p class="section__eyebrow">Siguiente paso</p>
+        <h2 class="section__title">Ordenemos tu arquitectura de datos</h2>
+        <p class="section__lead" style="max-width:56ch;margin-inline:auto;">Conversemos sobre server-side tracking, atribución y privacidad aplicados a tu negocio.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--primary" href="../contacto.html">Agendar diagnóstico</a>
+          <a class="btn btn--outline" href="../equipo.html">Conocer al equipo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__top">
+      <div class="footer__col">
+        <a href="../index.html" class="logo logo--light" aria-label="Feature Growth, inicio">
+          <img class="logo__mark" src="../assets/logo-mark-light.png" alt="" width="46" height="44" />
+          <span class="logo__word">
+            <span class="logo__name">FEATURE GROWTH</span>
+            <span class="logo__tag">Marketing | Data | IA</span>
+          </span>
+        </a>
+        <p class="footer__brandtext">Transformamos estrategia en crecimiento medible.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="../servicios/growth-performance.html">Growth &amp; Performance</a></li>
+          <li><a href="../servicios/marca-eventos.html">Marca &amp; Eventos</a></li>
+          <li><a href="../servicios/crm-automatizacion-ia.html">CRM, Automatización &amp; IA</a></li>
+          <li><a href="../servicios/consultoria-estrategica.html">Consultoría Estratégica</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="../growth-marketing-b2b/">Growth Marketing B2B</a></li>
+          <li><a href="../marketing-data-science/">Marketing Data Science</a></li>
+          <li><a href="../blog/medir-roi-eventos-corporativos/">ROI en eventos B2B</a></li>
+          <li><a href="../blog/demand-gen-vs-lead-gen-b2b/">Demand Gen vs Lead Gen</a></li>
+          <li><a href="../blog/implementar-ga4-server-side-gcp/">GA4 Server-Side en GCP</a></li>
+          <li><a href="../blog/optimizar-event-match-quality-meta-capi/">Event Match Quality (CAPI)</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:hola@featuregrowth.cl">hola@featuregrowth.cl</a></li>
+          <li><a href="../contacto.html">Formas de contacto</a></li>
+          <li><a href="../noticias.html">Noticias</a></li>
+        </ul>
+        <div class="social-row" style="margin-top:16px;">
+          <a class="social-btn" href="https://www.instagram.com/featuregrowth/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.07 4.7c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.44-.9-.84-1.3-.4-.4-.8-.64-1.3-.84-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+            Instagram
+          </a>
+          <a class="social-btn" href="https://www.facebook.com/profile.php?id=61592516520817" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg>
+            Facebook
+          </a>
+          <a class="social-btn" href="https://featuregrowth.blogspot.com/" target="_blank" rel="noopener" aria-label="Blogger">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3h13A1.5 1.5 0 0 1 20 4.5v15A1.5 1.5 0 0 1 18.5 21h-13A1.5 1.5 0 0 1 4 19.5v-15zM7 7v2h10V7H7zm0 4v2h6v-2H7zm0 4v2h10v-2H7z"/></svg>
+            Blogger
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span data-year>2026</span> Feature Growth · Marketing | Data | IA</p>
+      <p>featuregrowth.cl</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

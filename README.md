@@ -49,13 +49,35 @@ web-multipage/
 
 ## Cómo verlo localmente
 
-Abre `index.html` con doble clic, o levanta un servidor local (recomendado para probar la navegación):
+> ⚠️ **No abras la carpeta con doble clic.** Si entrás a `file:///…/marketing-data-science/`
+> el navegador muestra un **índice de archivos** en vez de la página, porque las páginas usan
+> **URLs limpias** (carpeta + `index.html`) y eso solo lo resuelve un servidor web.
+
+### Opción A — Lanzador (recomendada)
+
+Desde una terminal, dentro de la carpeta del proyecto:
+
+```bash
+./ver-sitio.sh          # abre http://localhost:8000 en el navegador
+./ver-sitio.sh 8080     # opcional: elegís el puerto
+```
+
+Dejalo corriendo mientras navegás. Para detenerlo: `Ctrl + C`.
+
+### Opción B — Servidor manual
 
 ```bash
 cd web-multipage
 python3 -m http.server 8000
 # Luego abre http://localhost:8000
 ```
+
+### Opción C — Abrir un archivo puntual
+
+Si solo querés ver una página y no te importa perder la navegación interna, abrí
+directamente el archivo, por ejemplo `marketing-data-science/index.html` (con `index.html`
+incluido al final de la ruta).
+
 
 ---
 
