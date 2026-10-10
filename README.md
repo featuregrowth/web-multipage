@@ -36,6 +36,8 @@ web-multipage/
 ├── contacto.html                       → Contacto y redes sociales
 ├── _redirects                          → Redirecciones 301 (Noticias)
 ├── ver-sitio.sh                        → Lanzador local (servidor + navegador)
+├── docs/
+│   └── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
@@ -156,6 +158,18 @@ Vercel, Cloudflare Pages, Surge (`npx surge web-multipage`) o Firebase Hosting.
 | Redes sociales     | `contacto.html` y el footer de cada página |
 | Imágenes           | `assets/img/` |
 | Navegación         | El bloque `<header>` de cada página (agregar/quitar ítems) |
+
+---
+
+## Documentación del trabajo práctico (SEO + GEO)
+
+En **`docs/tp-punto-3-plan-onpage.md`** está el entregable del **Punto 3 — Plan de contenidos on-page**:
+la estructura de las 6 piezas clave del sitio (2 *pillars*, 2 artículos de **Noticias** y 2 herramientas),
+con título, URL sugerida, estructura de headings **H1/H2/H3**, enfoque semántico, criterios **E-E-A-T**
+y la justificación de posicionamiento en *SERP features* y citación por modelos de IA generativa.
+
+Cada pieza implementada en el sitio respeta ese plan e incluye datos estructurados **JSON-LD**
+(`Article`/`NewsArticle`/`WebApplication`) con autoría, organización y fechas.
 
 ---
 

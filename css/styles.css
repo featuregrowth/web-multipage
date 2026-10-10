@@ -708,7 +708,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .cta-band__actions .btn, .contact-hero-actions .btn { width: 100%; }
 }
 
-/* ============================== Artículos y recursos (blog) ============================== */
+/* ============================== Artículos y recursos (Noticias) ============================== */
 .article__byline {
   font-family: var(--font-display);
   font-weight: 600;
