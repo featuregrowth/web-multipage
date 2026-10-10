@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Auditor gratuito de pérdida de señal y EMQ: diagnóstico de calidad de tracking, bloqueo por adblockers y puntuación Event Match Quality para Meta Ads y Google Ads." />
   <title>Auditor de Pérdida de Señal y Puntuación EMQ (Herramienta Gratuita) · Feature Growth</title>
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Feature Growth" />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:title" content="Auditor de Pérdida de Señal y Puntuación EMQ" />
+  <meta property="og:description" content="Diagnóstico de calidad de tracking, bloqueo por adblockers y puntuación Event Match Quality (EMQ) para Meta Ads y Google Ads." />
+  <meta property="og:url" content="https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/" />
+  <meta property="og:image" content="https://featuregrowth.cl/assets/img/servicio-crm.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Auditor de Pérdida de Señal y EMQ" />
+  <meta name="twitter:description" content="Diagnóstico técnico de tracking y puntuación EMQ para Meta Ads y Google Ads." />
+  <meta name="twitter:image" content="https://featuregrowth.cl/assets/img/servicio-crm.jpg" />
   <link rel="icon" href="../../assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
   <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png" />
@@ -26,7 +37,8 @@
     "@type": "Person",
     "name": "Matías Chaud",
     "jobTitle": "Cofundador · Data & Tecnología",
-    "url": "https://www.linkedin.com/in/matias-chaud/"
+    "url": "https://www.linkedin.com/in/matias-chaud/",
+    "sameAs": ["https://www.linkedin.com/in/matias-chaud/", "https://github.com/matiaschaud"]
   },
   "publisher": {
     "@type": "Organization",
@@ -116,6 +128,44 @@
           <li>Presencia y correcta configuración de un subdominio server-side de primera parte.</li>
         </ul>
         <p>Para resolver los problemas detectados en la auditoría, consultá la guía de <a href="../../noticias/optimizar-event-match-quality-meta-capi/">optimización de Meta CAPI</a> o volvé al <a href="../../marketing-data-science/">Manual de Marketing Data Science</a>.</p>
+      </section>
+
+      <section>
+        <h2>Compartí tu badge de salud de tracking</h2>
+        <p>Si sos agencia o consultor, podés incluir este badge en tus reportes o en tu sitio, con enlace de atribución a Feature Growth:</p>
+        <div class="badge-box">
+          <p>Vista previa del badge:</p>
+          <a class="tracking-badge" href="https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/">
+            <span class="tracking-badge__label">Tracking Health</span>
+            <span class="tracking-badge__value">Auditoría EMQ</span>
+            <span class="tracking-badge__source">por Feature Growth</span>
+          </a>
+          <pre class="embed-code" id="embed-badge-code" style="margin-top:18px;">&lt;a href="https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/" style="display:inline-flex;flex-direction:column;padding:16px 22px;border-radius:14px;background:linear-gradient(135deg,#053A49,#1F8B80);color:#fff;font-family:Montserrat,sans-serif;text-decoration:none;"&gt;
+  &lt;span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9E8E4;"&gt;Tracking Health&lt;/span&gt;
+  &lt;span style="font-weight:800;font-size:20px;"&gt;Auditoría EMQ&lt;/span&gt;
+  &lt;span style="font-size:11px;color:rgba(240,255,254,.85);"&gt;por Feature Growth&lt;/span&gt;
+&lt;/a&gt;</pre>
+          <div class="copy-row">
+            <button class="btn btn--outline" type="button" data-copy-target="#embed-badge-code">Copiar badge</button>
+            <span class="copy-note"></span>
+          </div>
+        </div>
+
+        <h3>Copiar resumen del diagnóstico</h3>
+        <p>Copiá el marco de revisión para pegarlo en tu informe o enviarlo a tu equipo de desarrollo:</p>
+        <div class="embed-box">
+          <pre class="embed-code" id="audit-summary">Auditoría de pérdida de señal y EMQ — marco de revisión (Feature Growth)
+1) Cookies de terceros / restricciones ITP-ETP: ¿qué % de solicitudes se bloquea?
+2) Deduplicación: ¿el event_id coincide entre el Pixel y Meta CAPI?
+3) Parámetros de matching enviados: Email (SHA256), Phone (SHA256), external_id, _fbp, _fbc.
+4) EMQ Meta estimado (1-10): objetivo ≥ 8.5.
+5) Server-side de primera parte: subdominio propio activo y con datos.
+Fuente y auditoría: https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/</pre>
+          <div class="copy-row">
+            <button class="btn btn--outline" type="button" data-copy-target="#audit-summary">Copiar diagnóstico</button>
+            <span class="copy-note"></span>
+          </div>
+        </div>
       </section>
         </div>
       </section>
@@ -212,6 +262,7 @@
         <ul>
           <li><a href="mailto:hola@featuregrowth.cl">hola@featuregrowth.cl</a></li>
           <li><a href="../../contacto.html">Formas de contacto</a></li>
+          <li><a href="../../prensa/">Prensa</a></li>
           <li><a href="../../noticias/">Noticias</a></li>
         </ul>
         <div class="social-row" style="margin-top:16px;">

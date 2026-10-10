@@ -90,4 +90,43 @@
       }
     });
   }
+
+  /* -------------------- Copiar al portapapeles + imprimir -------------------- */
+  function copyToClipboard(text, done) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () { legacyCopy(text, done); });
+    } else {
+      legacyCopy(text, done);
+    }
+  }
+  function legacyCopy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (err) {}
+    document.body.removeChild(ta);
+  }
+
+  document.querySelectorAll("[data-copy-target]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var src = document.querySelector(btn.getAttribute("data-copy-target"));
+      if (!src) return;
+      var text = (src.innerText || src.textContent || "").trim();
+      var note = btn.parentNode.querySelector(".copy-note");
+      copyToClipboard(text, function () {
+        if (note) {
+          note.textContent = "¡Copiado al portapapeles!";
+          window.setTimeout(function () { note.textContent = ""; }, 2500);
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll("[data-print]").forEach(function (btn) {
+    btn.addEventListener("click", function () { window.print(); });
+  });
 })();

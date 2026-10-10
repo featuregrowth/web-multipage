@@ -26,19 +26,25 @@ web-multipage/
 │   ├── optimizar-pipeline-ventas-b2b/  → Guía: Velocidad del pipeline B2B
 │   ├── implementar-ga4-server-side-gcp/ → Guía: GA4 Server-Side en GCP
 │   ├── optimizar-event-match-quality-meta-capi/ → Guía: Event Match Quality
-│   └── modelos-atribucion-marketing-python/ → Guía: Atribución (Markov/Shapley)
+│   ├── modelos-atribucion-marketing-python/ → Guía: Atribución (Markov/Shapley)
+│   ├── estado-eventos-corporativos-b2b-latam/ → Informe: Eventos B2B en LATAM
+│   └── barometro-perdida-senal-adblockers-latam/ → Informe: Pérdida de señal y AdBlockers
 ├── growth-marketing-b2b/               → Pillar: Growth Marketing B2B
 ├── marketing-data-science/             → Pillar: Marketing Data Science
 ├── herramientas/
 │   ├── index.html                      → Herramientas (hub)
 │   ├── calculadora-presupuesto-growth/ → Herramienta: Calculadora de presupuesto B2B
 │   └── auditor-signal-loss-emq/        → Herramienta: Auditor de señal y EMQ
+├── prensa/                             → Sala de prensa / Media Kit
 ├── contacto.html                       → Contacto y redes sociales
+├── robots.txt                          → Permisos de rastreo (buscadores + bots IA)
+├── sitemap.xml                         → Mapa del sitio
 ├── _redirects                          → Redirecciones 301 (Noticias)
 ├── ver-sitio.sh                        → Lanzador local (servidor + navegador)
 ├── docs/
 │   ├── tp-punto-2-keyword-research-arquitectura.md → TP final SEO+GEO · Punto 2 (keywords y arquitectura)
-│   └── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
+│   ├── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
+│   └── tp-punto-4-offpage-citabilidad.md → TP final SEO+GEO · Punto 4 (off-page y citabilidad IA)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
@@ -173,6 +179,12 @@ y la justificación de posicionamiento en *SERP features* y citación por modelo
 
 Cada pieza implementada en el sitio respeta ese plan e incluye datos estructurados **JSON-LD**
 (`Article`/`NewsArticle`/`WebApplication`) con autoría, organización y fechas.
+
+En **`docs/tp-punto-4-offpage-citabilidad.md`** está el entregable del **Punto 4 — Estrategia off-page y citabilidad en IA**:
+la infraestructura on-site que habilita el linkbaiting y el Digital PR (calculadora embebible con `embed.html` y código
+de inserción, PDF, badge para agencias, OG/Twitter Card), los **informes referenciales** en Noticias, el **Media Kit**
+en `/prensa/`, el marcado de entidades **`sameAs`** (`Organization` + `Person`), el control de rastreo de bots
+(`robots.txt` con GPTBot/PerplexityBot/ClaudeBot + `sitemap.xml`) y el **protocolo de monitoreo de citabilidad** en LLMs.
 
 ---
 

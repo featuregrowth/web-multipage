@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="description" content="Calculadora embebible de presupuesto y ROI B2B por Feature Growth." />
+  <title>Calculadora de presupuesto y ROI B2B · Feature Growth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:ital,wght@0,600;0,700;0,800&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    body { background: var(--white); }
+    .embed-wrap { max-width: 720px; margin: 0 auto; padding: 24px 18px 32px; }
+    .embed-wrap h1 { font-size: 1.25rem; margin-bottom: 6px; }
+    .embed-wrap > p { color: var(--gris-texto); font-size: .9rem; margin-bottom: 18px; }
+    .embed-credit { text-align: center; font-size: .8rem; color: var(--gris-texto); margin-top: 22px; }
+    .embed-credit a { color: var(--petroleo-medio); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="embed-wrap">
+    <h1>Calculadora de presupuesto y ROI B2B</h1>
+    <p>Ingresá tus datos para estimar pipeline, inversión y CAC objetivo.</p>
+
+    <form class="tool-form" id="calc-form" novalidate>
+      <div class="field">
+        <label for="calc-facturacion">Facturación anual objetivo ($)</label>
+        <input type="number" id="calc-facturacion" min="0" step="1000" placeholder="1200000000" required />
+      </div>
+      <div class="field">
+        <label for="calc-ticket">Ticket promedio por contrato ($)</label>
+        <input type="number" id="calc-ticket" min="0" step="1000" placeholder="50000" required />
+      </div>
+      <div class="field">
+        <label for="calc-cpl">Costo por lead (CPL) ($)</label>
+        <input type="number" id="calc-cpl" min="0" step="100" placeholder="8000" required />
+      </div>
+      <div class="field">
+        <label for="calc-mql-sql">Tasa MQL &rarr; SQL (%)</label>
+        <input type="number" id="calc-mql-sql" min="0" max="100" step="1" placeholder="28" required />
+      </div>
+      <div class="field">
+        <label for="calc-win-rate">Tasa de cierre / Win Rate (%)</label>
+        <input type="number" id="calc-win-rate" min="0" max="100" step="1" placeholder="22" required />
+      </div>
+      <div class="field">
+        <label for="calc-ciclo">Ciclo de venta estimado (meses)</label>
+        <input type="number" id="calc-ciclo" min="0" step="1" placeholder="4" required />
+      </div>
+      <button class="btn btn--primary" type="submit">Calcular proyección</button>
+      <p class="tool-note" id="calc-error" hidden>Completá los campos con valores mayores a cero para calcular.</p>
+    </form>
+
+    <div class="tool-results" id="calc-results" hidden>
+      <h3 class="tool-results__title">Proyección estimada</h3>
+      <div class="tool-results__grid">
+        <div class="tool-results__row"><span>Clientes nuevos necesarios</span><strong data-out="clientes">—</strong></div>
+        <div class="tool-results__row"><span>Oportunidades (SQL) necesarias</span><strong data-out="sql">—</strong></div>
+        <div class="tool-results__row"><span>Leads (MQL) necesarios</span><strong data-out="mql">—</strong></div>
+        <div class="tool-results__row"><span>Inversión publicitaria estimada</span><strong data-out="inversion">—</strong></div>
+        <div class="tool-results__row"><span>CAC objetivo</span><strong data-out="cac">—</strong></div>
+        <div class="tool-results__row"><span>Split 70% · Generación de demanda</span><strong data-out="demanda">—</strong></div>
+        <div class="tool-results__row"><span>Split 30% · Captura de demanda</span><strong data-out="captura">—</strong></div>
+        <div class="tool-results__row"><span>Ciclo de venta estimado</span><strong data-out="ciclo">—</strong></div>
+      </div>
+      <p class="tool-note">Estimación referencial. Ajustamos los supuestos en un diagnóstico.</p>
+    </div>
+
+    <p class="embed-credit">Calculadora por <a href="https://featuregrowth.cl/herramientas/calculadora-presupuesto-growth/">Feature Growth</a></p>
+  </div>
+
+  <script src="../../js/tools.js"></script>
+</body>
+</html>
