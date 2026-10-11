@@ -131,6 +131,17 @@ Por eso la decisión implementada fue:
 
 > **Regla de oro:** `robots.txt` = gestión del tráfico de rastreo (crawl budget); `noindex` (etiqueta o encabezado `X-Robots-Tag`) = control de aparición en resultados. Para información sensible, la única protección confiable es la contraseña.
 
+##### ¿Por qué no bloqueamos el aviso legal con `Disallow`?
+
+La pregunta natural es: si no queremos que aparezca, ¿por qué dejar que lo rastreen? La respuesta es que **el `noindex` necesita que la página sea rastreada al menos una vez** para poder leerse. El razonamiento completo:
+
+1. **`Disallow` anularía el `noindex`.** Si se bloquea el rastreo, Googlebot no descarga la página, por lo tanto **nunca ve la directiva `noindex`** y esta queda inútil. Bloquear y desindexar son objetivos distintos que se estorban entre sí cuando se combinan sin criterio.
+2. **Un solo rastreo es suficiente.** El aviso legal es una página estática que no cambia; Googlebot la rastrea una vez, procesa el `noindex` y la excluye del índice. A partir de ahí deja de volver a rastrearla por su cuenta.
+3. **El ahorro de *crawl budget* es irrelevante aquí.** El motivo para bloquear en `robots.txt` es no malgastar rastreo (sitios de decenas de miles de URLs). Bloquear **una** URL estática en un sitio chico no aporta ningún ahorro real; en cambio, sí sacrifica la garantía de de-indexación.
+4. **Priorizamos la garantía.** El riesgo de que una URL bloqueada se indexe vía enlaces externos ("sin descripción") es bajo acá (no hay enlaces externos al aviso legal), pero existe; con `noindex` + rastreo permitido el resultado es determinista.
+
+**Conclusión:** para este caso el `noindex` sin `Disallow` es la opción técnicamente correcta. Se reservaría el `Disallow` para contenido de bajo valor que **solo** se quiera ahorrar de rastrear y para el que no importe la indexación (p. ej. parámetros de filtros o URLs internas de resultados). Si en algún momento se necesitara bloquearlo, el protocolo correcto sería: **primero permitir el rastreo para que Google lea el `noindex` y lo desindexe, y solo después añadir el `Disallow`.**
+
 ### 3.2 Rendimiento WPO y paridad móvil
 - **71/71 imágenes** con atributos `width` y `height` → reserva de espacio en el DOM (protege el **CLS ≤ 0,1**).
 - **`loading="lazy"`** aplicado a imágenes secundarias; la zona *hero* es de texto/gradiente (sin imagen LCP con lazy).
