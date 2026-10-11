@@ -47,7 +47,8 @@ web-multipage/
 │   ├── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
 │   ├── tp-punto-4-offpage-citabilidad.md → TP final SEO+GEO · Punto 4 (off-page y citabilidad IA)
 │   ├── tp-punto-5-consideraciones-tecnicas.md → TP final SEO+GEO · Punto 5 (consideraciones técnicas)
-│   └── tp-punto-6-dashboard-seguimiento.md → TP final SEO+GEO · Punto 6 (dashboard SEO + GEO)
+│   ├── tp-punto-6-dashboard-seguimiento.md → TP final SEO+GEO · Punto 6 (dashboard SEO + GEO)
+│   └── guia-ga4-gtm.md                   → Guía instructiva: medición GA4 + GTM (conceptos, pasos y debugging)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
@@ -201,6 +202,14 @@ marco teórico del "Gran Desacople", la arquitectura en **Looker Studio** (Searc
 las **matrices de KPIs** por perfil (Fran y Matías) con herramienta, frecuencia y justificación, y el **protocolo mensual
 de monitoreo GEO + Gap Analysis**. También documenta la medición implementada en el sitio: **GTM `GTM-T5N7DK76`** +
 eventos personalizados (`calc_b2b_submit`, `audit_emq_submit`, etc.) y el canal **"AI" por referrer** en GA4.
+
+### Guía de medición (GA4 + GTM)
+
+En **`docs/guia-ga4-gtm.md`** está la **guía instructiva completa** para entender y hacer funcionar Google Analytics 4
+a través de Google Tag Manager: conceptos clave (etiqueta, disparador, variable, Data Layer), estado actual del sitio,
+creación de la propiedad GA4 y obtención del **ID de medición `G-`**, conexión de GA4 dentro de GTM, eventos
+personalizados del proyecto, pruebas con **Vista previa / DebugView / Tiempo real**, checklist de publicación y
+solución de errores comunes.
 
 ---
 
