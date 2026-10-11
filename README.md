@@ -53,7 +53,7 @@ web-multipage/
 ├── js/
 │   ├── main.js                         → Menú móvil, scroll, animaciones, año dinámico
 │   ├── tools.js                        → Lógica de la calculadora y el auditor
-│   └── analytics.js                    → Data Layer + GTM (GTM-T5N7DK76) y helper de eventos
+│   └── analytics.js                    → Helper de eventos (fgTrack → Data Layer); GTM va inline en el <head>
 ├── assets/
 │   ├── logo-mark.png                   → Logotipo FG · versión degradado (fondos claros)
 │   ├── logo-mark-light.png             → Logotipo FG · versión blanca (fondos oscuros)

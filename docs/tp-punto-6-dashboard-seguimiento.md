@@ -53,9 +53,10 @@ Se ejecuta el primer día hábil de cada mes:
 ## 5. Implementación técnica de la medición (en el sitio)
 
 ### 5.1 GTM + GA4
-- `js/analytics.js` inicializa el **Data Layer** y carga el contenedor **`GTM-T5N7DK76`**; expone `window.fgTrack(evento, params)`.
+- Se instala el **snippet oficial de Google Tag Manager** (`GTM-T5N7DK76`) **inline en el `<head>`** de cada página y el `<noscript>` inmediatamente después de `<body>`, siguiendo las instrucciones de GTM.
+- `js/analytics.js` aporta el helper **`window.fgTrack(evento, params)`**, que empuja eventos personalizados al **Data Layer** (que consume GTM).
 - La etiqueta **GA4** (Measurement ID `G-…`) y sus *triggers* de evento personalizado se configuran **dentro de GTM** (no en el HTML).
-- Páginas: `analytics.js` está en el `<head>` de todo el sitio, **excepto `embed.html`** (se embebe en terceros).
+- Excluido: `embed.html` (se embebe en sitios de terceros).
 
 ### 5.2 Eventos personalizados (Custom Events)
 | Evento | Dónde se dispara | Categoría |
