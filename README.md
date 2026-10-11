@@ -202,7 +202,10 @@ implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareAppl
 **control de rastreo** (`robots.txt`) y **control de indexación** (`noindex`)—. También documenta y justifica
 la **configuración móvil elegida**: de las tres que reconoce Google (*responsive design*, *dynamic serving* y *URLs separadas*),
 el sitio usa **responsive design** (URL única, mismo HTML, viewport en las 23 páginas y media queries), e incluye un
-**bloque listo para usar como slide** en la presentación final.
+**bloque listo para usar como slide** en la presentación final. Además, la subsección **3.4 Localización, idioma y hreflang**
+argumenta por qué el sitio, al operar **solo en Chile** (contenido localizado, una única versión por URL), **no requiere `hreflang`**
+ni `x-default`, y documenta la **coherencia del locale** (`lang="es-CL"`, `inLanguage "es-CL"`, `og:locale es_CL`,
+`priceCurrency CLP`, `areaServed CL`) junto con el *roadmap* para cuando se expanda a otros mercados.
 
 En **`docs/tp-punto-6-dashboard-seguimiento.md`** está el entregable del **Punto 6 — Dashboard de seguimiento (SEO + GEO)**:
 marco teórico del "Gran Desacople", la arquitectura en **Looker Studio** (Search Console + GA4 + Ahrefs Brand Radar),

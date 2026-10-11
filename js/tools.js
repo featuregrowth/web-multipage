@@ -24,7 +24,7 @@
       return isFinite(v) ? v : 0;
     }
     function fmt(n) {
-      return Math.round(n).toLocaleString("es-AR");
+      return Math.round(n).toLocaleString("es-CL");
     }
     function money(n) {
       return "$" + fmt(n);

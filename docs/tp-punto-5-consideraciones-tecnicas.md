@@ -151,6 +151,29 @@ La pregunta natural es: si no queremos que aparezca, ¿por qué dejar que lo ras
 ### 3.3 Datos estructurados
 Implementados según la tabla del Eje 4, en el `<head>` de cada página (JSON-LD), con `@graph` cuando se agrupan entidades (pillars y equipo).
 
+### 3.4 Localización, idioma y hreflang
+
+**Marco.** Un sitio **multilingüe** ofrece contenido en más de un idioma; uno **multirregional** apunta a usuarios de distintos países. El `hreflang` es la anotación que **relaciona las variantes** de una misma página y le indica a Google cuál mostrar a cada usuario. Un punto que se malinterpreta seguido: **hreflang no es un detector de idioma**. Google no lo usa (ni el atributo `lang`) para descubrir en qué idioma está escrita una página —eso lo resuelve con sus propios algoritmos—, sino para emparejar la versión correcta.
+
+**El caso de `featuregrowth.cl`: sitio mono-mercado (solo Chile).** La operación actual tiene base y foco en **Chile**, y el contenido no es solo "en español": está **localizado** para ese mercado (modismos, moneda `priceCurrency: CLP`, casos locales). Por eso existe **una sola versión por URL** y no hay variantes de idioma ni de región que relacionar. Consecuencia técnica: **`hreflang`, `x-default` y los `alternate` del sitemap no aplican**; implementarlos hoy sería redundante y, peor, propenso al error clásico de anotaciones no recíprocas (si A apunta a B, B debe apuntar de vuelta a A, o Google ignora la anotación). La decisión correcta es **no señalizar** y, en cambio, cuidar la coherencia del locale.
+
+**Consistencia implementada.** Todas las señales de idioma/región apuntan a un único valor (Chile):
+
+| Señal | Dónde | Valor |
+|---|---|---|
+| `<html lang>` | 24 páginas | `es-CL` |
+| `inLanguage` (JSON-LD) | 14 páginas | `es-CL` |
+| `og:locale` (Open Graph) | páginas con OG | `es_CL` |
+| `priceCurrency` (JSON-LD `Offer`) | herramientas | `CLP` |
+| `areaServed` (JSON-LD `Service`) | pillars | `CL` |
+| Formateo de números | `js/tools.js` | `es-CL` |
+
+Las menciones de alcance comercial del sitio (hero, visión, servicios) también quedaron alineadas a **Chile**. Las referencias a *LATAM* que restan en Noticias pertenecen al **tema** de los informes referenciales (su mercado de análisis), no a la operación declarada.
+
+> **Por qué importa señalizar cuando la localización avance.** El encuadre regional lo resume: *una localización mal señalizada desperdicia toda la inversión en traducción y contenido regional*. Se puede invertir mucho en adaptar el contenido a cada país; si los buscadores no logran emparejar al usuario con la página correcta, ese esfuerzo se pierde.
+
+**Roadmap si se expande a otros mercados hispanohablantes.** Los modismos y los precios cambian por país, así que expandirse **no es traducir: es adaptar** (tono, moneda, casos). Cuando existan versiones por país, corresponde: **(1)** elegir **un único** método de `hreflang` (etiquetas HTML, encabezados HTTP o sitemap) y sostenerlo con disciplina; **(2)** anotaciones **recíprocas y con auto-referencia**, con URLs **completamente calificadas** (protocolo incluido); **(3)** marcar una `x-default` como página de respaldo; y **(4)** **no** adaptar por IP —los rastreos de Google salen mayormente de Estados Unidos, por lo que podría rastrear la variante equivocada—, sino ofrecer un **selector visible de país e idioma**.
+
 ---
 
 ## 4. Checklist de cumplimiento
@@ -165,6 +188,7 @@ Implementados según la tabla del Eje 4, en el `<head>` de cada página (JSON-LD
 - [x] Contenido clave en HTML estático (paridad SSR).
 - [x] JSON-LD avanzado: `Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`, `CollectionPage`.
 - [x] Datos estructurados válidos (verificación automática en el build local).
+- [x] Locale unificado a Chile (`lang="es-CL"`, `inLanguage "es-CL"`, `og:locale es_CL`, `priceCurrency CLP`, `areaServed CL`) — **sin `hreflang`**: una sola versión por página (mercado Chile).
 
 ---
 
@@ -214,3 +238,17 @@ En el diseño responsivo, **contenido y metadatos son idénticos** en ambas vers
 **Cierre:** los Core Web Vitals son **una señal entre muchas**; la relevancia y la calidad del contenido siguen pesando primero. El objetivo no es el puntaje perfecto, sino mejorar la experiencia real de las personas.
 
 **Evidencia a registrar (para el PDF):** captura de **PageSpeed Insights** por página (móvil y escritorio) con los valores **LCP / INP / CLS** del percentil 75.
+
+---
+
+### Slide 3 — «Localización, no solo idioma: por qué hoy no usamos hreflang»
+
+**Multilingüe ≠ multirregional.** Multilingüe = contenido en más de un idioma; multirregional = apuntar a usuarios de distintos países. El `hreflang` **relaciona variantes** de la misma página; **no** detecta en qué idioma está escrita (eso lo resuelve Google con sus algoritmos).
+
+**Nuestro caso: solo Chile.** Feature Growth opera hoy **solo en Chile**: una sola versión por URL, con contenido **localizado** (modismos, `CLP`, casos locales) y todas las señales de locale apuntando a un único valor: `es-CL` / `es_CL` / `CLP` / `areaServed CL`.
+
+**Por qué no usamos hreflang (todavía).** Sin variantes de idioma o región, **no hay nada que relacionar**: sería redundante y propenso al error de anotaciones no recíprocas. No se señaliza lo que no existe.
+
+**Cuándo sí lo usaríamos.** Al expandir a otros países, **no alcanza con traducir: hay que adaptar** (tono, modismos, moneda, casos). Ahí entra `hreflang` recíproco + `x-default` como respaldo + **selector visible de país/idioma** (nunca redirección por IP, que Google desaconseja).
+
+> **Idea fuerza:** *una localización mal señalizada desperdicia toda la inversión en contenido regional*.
