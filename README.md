@@ -39,12 +39,14 @@ web-multipage/
 ├── contacto.html                       → Contacto y redes sociales
 ├── robots.txt                          → Permisos de rastreo (buscadores + bots IA)
 ├── sitemap.xml                         → Mapa del sitio
+├── f3a7c9b2e6d4185097ab3c5f2e8d146b.txt → Clave de IndexNow (notificación a Bing/IA)
 ├── _redirects                          → Redirecciones 301 (Noticias)
 ├── ver-sitio.sh                        → Lanzador local (servidor + navegador)
 ├── docs/
 │   ├── tp-punto-2-keyword-research-arquitectura.md → TP final SEO+GEO · Punto 2 (keywords y arquitectura)
 │   ├── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
-│   └── tp-punto-4-offpage-citabilidad.md → TP final SEO+GEO · Punto 4 (off-page y citabilidad IA)
+│   ├── tp-punto-4-offpage-citabilidad.md → TP final SEO+GEO · Punto 4 (off-page y citabilidad IA)
+│   └── tp-punto-5-consideraciones-tecnicas.md → TP final SEO+GEO · Punto 5 (consideraciones técnicas)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
@@ -178,13 +180,19 @@ con título, URL sugerida, estructura de headings **H1/H2/H3**, enfoque semánti
 y la justificación de posicionamiento en *SERP features* y citación por modelos de IA generativa.
 
 Cada pieza implementada en el sitio respeta ese plan e incluye datos estructurados **JSON-LD**
-(`Article`/`NewsArticle`/`WebApplication`) con autoría, organización y fechas.
+(`Article`/`NewsArticle`/`TechArticle`/`SoftwareApplication` y `Service`) con autoría, organización y fechas.
 
 En **`docs/tp-punto-4-offpage-citabilidad.md`** está el entregable del **Punto 4 — Estrategia off-page y citabilidad en IA**:
 la infraestructura on-site que habilita el linkbaiting y el Digital PR (calculadora embebible con `embed.html` y código
 de inserción, PDF, badge para agencias, OG/Twitter Card), los **informes referenciales** en Noticias, el **Media Kit**
 en `/prensa/`, el marcado de entidades **`sameAs`** (`Organization` + `Person`), el control de rastreo de bots
 (`robots.txt` con GPTBot/PerplexityBot/ClaudeBot + `sitemap.xml`) y el **protocolo de monitoreo de citabilidad** en LLMs.
+
+En **`docs/tp-punto-5-consideraciones-tecnicas.md`** está el entregable del **Punto 5 — Consideraciones técnicas**:
+marco teórico del SEO técnico como infraestructura para buscadores y crawlers de IA, los **4 ejes priorizados**
+(Mobile-First/WPO y Core Web Vitals, control de rastreo + **IndexNow**, paridad SSR/JS y datos estructurados avanzados),
+la auditoría de WPO del sitio (71/71 imágenes con `width`/`height`, lazy loading selectivo) y los esquemas JSON-LD
+implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`).
 
 ---
 

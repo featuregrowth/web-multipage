@@ -70,3 +70,7 @@ Ejecutar en: **ChatGPT Search, Google Gemini, Perplexity** (y AI Overviews cuand
 - Nº de menciones de marca en respuestas de LLM (mensual).
 - Nº de dominios referentes (backlinks) hacia `/herramientas/` y `/noticias/`.
 - Citas en AI Overviews para las queries objetivo.
+
+---
+
+> **Complemento (Punto 5 — Consideraciones técnicas):** la infraestructura de rastreo se completa con **IndexNow** (notificación de cambios a Bing/IA) y con datos estructurados avanzados (`Service`, `TechArticle`, `SoftwareApplication`). El detalle está en `docs/tp-punto-5-consideraciones-tecnicas.md`.

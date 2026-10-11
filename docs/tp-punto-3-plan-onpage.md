@@ -44,7 +44,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 
 **E-E-A-T (Experiencia, Experticia, Autoridad, Confiabilidad)**
 - **Autoría explícita** con byline y `author-box` (nombre, rol, bio y enlace al equipo).
-- **Datos estructurados** en JSON-LD: `Article`/`NewsArticle` + `author` (Person con `jobTitle` y LinkedIn) + `publisher` (Organization) + `datePublished`/`dateModified`.
+- **Datos estructurados** en JSON-LD: `Article`/`NewsArticle`/`TechArticle` + `author` (Person con `jobTitle` y LinkedIn) + `publisher` (Organization) + `datePublished`/`dateModified`.
 - **Demostración de experiencia**: evidencia cuantitativa propia, metodología y lenguaje de primera mano.
 
 ---
@@ -65,7 +65,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H2** | 1. ¿Qué es el Growth Marketing B2B y en qué se diferencia del marketing tradicional?<br>2. Los 4 Pilares del Sistema de Generación de Demanda de Feature Growth<br>3. Arquitectura del cluster temático y red de contenidos<br>4. Métricas de rendimiento y ratios de eficiencia B2B |
 | **H3** | · El cambio de paradigma: de la métrica de vanidad a los ingresos cualificados (SQL) |
 | **Enfoque semántico / entidades** | Growth Marketing B2B, generación de demanda (demand generation), pipeline de ventas, MQL, SQL, CAC, LTV, Payback, Win Rate, unit economics, LinkedIn Ads, Google Search, Meta Ads, CRM, SaaS, HubSpot, Salesforce. |
-| **Criterios E-E-A-T** | Firmado por **Fran Contreras** (Cofundadora · Estrategia & Growth) con byline + author-box. JSON-LD `Article` con autor, organización y fechas. Incorpora metodología propietaria (los 4 pilares) y ratios de atribución comercial. |
+| **Criterios E-E-A-T** | Firmado por **Fran Contreras** (Cofundadora · Estrategia & Growth) con byline + author-box. JSON-LD `Article` + `Service` (en `@graph`) con autor, organización y fechas. Incorpora metodología propietaria (los 4 pilares) y ratios de atribución comercial. |
 | **Estrategia AEO / GEO** | Párrafo de respuesta directa (~45 palabras) tras el primer H2 (definición de Growth Marketing B2B). Tabla de KPIs B2B (LTV:CAC 3:1–5:1, Payback 5–9 meses, MQL→SQL 22–35%, Win Rate 18–28%) para forzar citación por modelos RAG. |
 | **Enlazado interno (silo)** | → `/noticias/demand-gen-vs-lead-gen-b2b/`, `/noticias/optimizar-pipeline-ventas-b2b/`, `/noticias/medir-roi-eventos-corporativos/`, `/herramientas/calculadora-presupuesto-growth/`. |
 
@@ -88,7 +88,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 #### Pieza 3 · Tool Landing Page (activo de linkbaiting)
 | Campo | Definición |
 |-------|------------|
-| **Tipo** | Herramienta interactiva (WebApplication) |
+| **Tipo** | Herramienta interactiva (SoftwareApplication) |
 | **Ubicación** | Sección `/herramientas/` |
 | **URL sugerida** | `https://featuregrowth.cl/herramientas/calculadora-presupuesto-growth/` |
 | **Title tag** | Calculadora de Presupuesto y ROI de Generación de Demanda B2B · Feature Growth |
@@ -97,7 +97,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H2** | 1. Estimación interactiva de inversión publicitaria y retorno comercial B2B<br>2. Simulador de métricas comerciales B2B |
 | **H3** | · Proyección estimada (bloque de resultados)<br>· Beneficios del diagnóstico de inversión B2B |
 | **Enfoque semántico / entidades** | Calculadora ROI B2B, presupuesto de marketing, simulador CAC, target revenue, CPL, MQL→SQL, Win Rate, ciclo de venta. |
-| **Criterios E-E-A-T** | JSON-LD `WebApplication` + autoría de Fran; transparencia de la fórmula de cálculo (macro/micro conversiones). |
+| **Criterios E-E-A-T** | JSON-LD `SoftwareApplication` + autoría de Fran; transparencia de la fórmula de cálculo (macro/micro conversiones). |
 | **Estrategia AEO / GEO** | Formulario interactivo (facturación objetivo, ticket promedio, CPL, MQL→SQL, Win Rate, ciclo). Excelente activo de **Digital PR / linkbaiting** y candidato a ser recomendado por asistentes ante prompts del tipo "calculadora de presupuesto de marketing B2B". |
 | **Enlazado interno (silo)** | → pillar `/growth-marketing-b2b/`, `/noticias/optimizar-pipeline-ventas-b2b/`, `/noticias/demand-gen-vs-lead-gen-b2b/`. |
 
@@ -117,7 +117,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H2** | 1. El fin de las cookies de terceros y el impacto en la atribución publicitaria<br>2. Arquitectura Server-Side Tracking con Google Tag Manager y GCP<br>3. Recursos del cluster temático de Data Science<br>4. Impacto cuantitativo de la recolección server-side |
 | **H3** | · Consecuencias técnicas en Meta Ads, Google Ads y TikTok Ads<br>· 5 pasos para migrar a una arquitectura server-side |
 | **Enfoque semántico / entidades** | Marketing Data Science, Server-Side Tracking, First-Party Data, Meta CAPI, GA4, GTM Server, Google Cloud Platform, BigQuery, Python, atribución, EMQ, ITP/ETP, SaaS, e-commerce, LATAM. |
-| **Criterios E-E-A-T** | Firmado por **Matías Chaud** (Cofundador · Data & Tecnología) con byline + author-box. JSON-LD `Article` con autor, organización y fechas. Diagramas de arquitectura, scripts y tabla de impacto. |
+| **Criterios E-E-A-T** | Firmado por **Matías Chaud** (Cofundador · Data & Tecnología) con byline + author-box. JSON-LD `Article` + `Service` (en `@graph`) con autor, organización y fechas. Diagramas de arquitectura, scripts y tabla de impacto. |
 | **Estrategia AEO / GEO** | Párrafo `.answer` (~40 palabras) de definición. **Lista ordenada de 5 pasos** para migrar a server-side (optimizada para Featured Snippet de proceso). Tabla de impacto cuantitativo (+18–28% conversiones, EMQ 8.2–9.5/10, −200 ms en Core Web Vitals). |
 | **Enlazado interno (silo)** | → `/noticias/implementar-ga4-server-side-gcp/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/noticias/modelos-atribucion-marketing-python/`, `/herramientas/auditor-signal-loss-emq/`. |
 
@@ -133,14 +133,14 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H2** | 1. Requisitos previos y arquitectura de contenedores<br>2. Pasos de implementación en el contenedor de servidor<br>3. Resultados de rendimiento y WPO |
 | **H3** | · Configuración de parámetros de cliente GA4 Server-Side |
 | **Enfoque semántico / entidades** | GA4 Server-Side, Google Cloud Platform, GTM Server, subdominio first-party, Core Web Vitals (INP/LCP), cabeceras HTTP, deduplicación de eventos, Stape.io. |
-| **Criterios E-E-A-T** | Autoría de Matías; JSON-LD `NewsArticle` con fechas; tutorial escrito desde la experiencia práctica en ingeniería de datos, con métricas propias de latencia y recuperación. |
+| **Criterios E-E-A-T** | Autoría de Matías; JSON-LD `TechArticle` (con `proficiencyLevel`) y fechas; tutorial escrito desde la experiencia práctica en ingeniería de datos, con métricas propias de latencia y recuperación. |
 | **Estrategia AEO / GEO** | Respuesta directa autocontenida (~48 palabras) en el primer apartado. **Lista ordenada (paso a paso)** para Featured Snippet de proceso y fragmentos de código (`<code>`) que los modelos técnicos citan. Cifras reproducibles (+18–28% de conversiones, −200 ms). |
 | **Enlazado interno (silo)** | → pillar `/marketing-data-science/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/herramientas/auditor-signal-loss-emq/`. |
 
 #### Pieza 6 · Tool Landing Page (activo de linkbaiting)
 | Campo | Definición |
 |-------|------------|
-| **Tipo** | Herramienta interactiva (WebApplication) |
+| **Tipo** | Herramienta interactiva (SoftwareApplication) |
 | **Ubicación** | Sección `/herramientas/` |
 | **URL sugerida** | `https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/` |
 | **Title tag** | Auditor de Pérdida de Señal y Puntuación EMQ (Herramienta Gratuita) · Feature Growth |
@@ -149,7 +149,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **H2** | 1. Diagnóstico de efectividad de seguimiento e impacto de adblockers<br>2. Consola de diagnóstico técnico de tracking |
 | **H3** | · Factores evaluados en el reporte de salud de datos |
 | **Enfoque semántico / entidades** | Auditoría de tracking, Event Match Quality (EMQ), signal loss, deduplicación de eventos, Meta CAPI, ITP/ETP, subdominio first-party. |
-| **Criterios E-E-A-T** | JSON-LD `WebApplication` + autoría de Matías; metodología basada en la documentación oficial de Meta Developers y Google Tag Manager. |
+| **Criterios E-E-A-T** | JSON-LD `SoftwareApplication` + autoría de Matías; metodología basada en la documentación oficial de Meta Developers y Google Tag Manager. |
 | **Estrategia AEO / GEO** | Interfaz de diagnóstico con entrada de URL. Activo de **Digital PR / linkbaiting** para recibir backlinks de medios de marketing y tecnología; candidato a citación como recurso recomendado por asistentes. |
 | **Enlazado interno (silo)** | → pillar `/marketing-data-science/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/noticias/modelos-atribucion-marketing-python/`. |
 
@@ -202,3 +202,11 @@ La consigna pide justificar, **en al menos una pieza**, cómo podría posicionar
 - [x] **Enfoque semántico** → entidades y términos clave por pieza.
 - [x] **Criterios E-E-A-T aplicados** → autoría, bio, JSON-LD con autor/organización/fechas, evidencia propia.
 - [x] **Justificación de SERP feature / citación por IA en ≥1 caso** → desarrollo principal de la Pieza 2 + casos secundarios (Piezas 5 y 3).
+
+---
+
+> **Actualización (Punto 5 — Consideraciones técnicas):** se refinaron los tipos de datos estructurados del sitio.
+> Las dos herramientas pasaron de `WebApplication` a **`SoftwareApplication`** (con `offers` gratuitos); la guía técnica
+> de GA4 (Pieza 5) pasó de `NewsArticle` a **`TechArticle`** (con `proficiencyLevel`), al igual que las guías técnicas de
+> EMQ y Atribución en Python. Las *pillar pages* incorporan además **`Service`** y `Person` en un `@graph` JSON-LD.
+> Detalle completo en `docs/tp-punto-5-consideraciones-tecnicas.md`.
