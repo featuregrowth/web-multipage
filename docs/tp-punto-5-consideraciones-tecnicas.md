@@ -116,6 +116,21 @@ Los datos estructurados desambiguan entidades y habilitan *rich snippets* y cita
 - **`sitemap.xml`**: 22 URLs con `priority` por jerarquía (home 1.0; pillars y herramientas 0.9; hubs e informes 0.8; servicios 0.8; spokes 0.7; equipo/contacto 0.6).
 - **IndexNow**: clave publicada en `/{clave}.txt` en la raíz del sitio. Notificación de cambios vía `https://api.indexnow.org/indexnow?url=<url>&key=<clave>&keyLocation=https://featuregrowth.cl/<clave>.txt`.
 
+#### Caso práctico: `aviso-legal.html` — rastreo ≠ indexación
+
+La página **`aviso-legal.html`** es pública (va enlazada en el footer de todas las páginas) pero **no debe aparecer en los resultados de búsqueda**. Es el ejemplo exacto del malentendido más común de `robots.txt`: **bloquear una URL con `Disallow` controla el rastreo, no la indexación**, y una página bloqueada puede seguir indexándose a través de enlaces externos —mostrando la URL desnuda, sin descripción—.
+
+Por eso la decisión implementada fue:
+
+| Mecanismo | Estado | Motivo |
+|---|---|---|
+| `<meta name="robots" content="noindex, follow">` | **Sí** | Es la forma real de impedir la indexación. `follow` conserva el flujo de enlaces internos. |
+| `Disallow: /aviso-legal.html` en `robots.txt` | **No** | Si se bloqueara el rastreo, Googlebot **no podría leer el `noindex`**, anulando el objetivo. `robots.txt` solo documenta la decisión en un comentario. |
+| Inclusión en `sitemap.xml` | **No** | No se sugiere a los buscadores una URL que no debe indexarse. |
+| Enlace en el footer | **Sí** | La página debe ser accesible para el usuario (finalidad legal), sin depender de que sea indexable. |
+
+> **Regla de oro:** `robots.txt` = gestión del tráfico de rastreo (crawl budget); `noindex` (etiqueta o encabezado `X-Robots-Tag`) = control de aparición en resultados. Para información sensible, la única protección confiable es la contraseña.
+
 ### 3.2 Rendimiento WPO y paridad móvil
 - **71/71 imágenes** con atributos `width` y `height` → reserva de espacio en el DOM (protege el **CLS ≤ 0,1**).
 - **`loading="lazy"`** aplicado a imágenes secundarias; la zona *hero* es de texto/gradiente (sin imagen LCP con lazy).
@@ -134,6 +149,7 @@ Implementados según la tabla del Eje 4, en el `<head>` de cada página (JSON-LD
 - [x] Lazy loading selectivo (sin lazy en zona hero/LCP).
 - [x] `robots.txt` con apertura explícita a crawlers de IA.
 - [x] `sitemap.xml` completo y jerarquizado.
+- [x] Aviso legal (`aviso-legal.html`) con `noindex, follow`, fuera del sitemap y **sin** bloqueo en `robots.txt` (rastreo ≠ indexación).
 - [x] IndexNow (clave + referencia de ping).
 - [x] Contenido clave en HTML estático (paridad SSR).
 - [x] JSON-LD avanzado: `Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`, `CollectionPage`.

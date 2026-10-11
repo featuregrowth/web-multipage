@@ -1,3 +1,14 @@
+# robots.txt — control de rastreo (crawl), no de indexación.
+# Regla general: permitir el rastreo y controlar la indexación con la directiva
+# <meta name="robots" content="noindex"> en la propia página.
+#
+# Caso /aviso-legal.html:
+#   Esta página es pública (enlazada en el footer) pero NO debe aparecer en los
+#   resultados de búsqueda. Por eso NO se bloquea aquí con Disallow: si se
+#   bloqueara el rastreo, Googlebot no podría leer su etiqueta noindex y la URL
+#   podría seguir indexándose a través de enlaces externos (sin descripción).
+#   La indexación se controla con noindex + su exclusión del sitemap.xml.
+
 User-agent: *
 Allow: /
 

@@ -37,6 +37,7 @@ web-multipage/
 │   └── auditor-signal-loss-emq/        → Herramienta: Auditor de señal y EMQ
 ├── prensa/                             → Sala de prensa / Media Kit
 ├── contacto.html                       → Contacto y redes sociales
+├── aviso-legal.html                    → Aviso legal (noindex: público pero no indexable)
 ├── robots.txt                          → Permisos de rastreo (buscadores + bots IA)
 ├── sitemap.xml                         → Mapa del sitio
 ├── f3a7c9b2e6d4185097ab3c5f2e8d146b.txt → Clave de IndexNow (notificación a Bing/IA)
@@ -195,7 +196,10 @@ En **`docs/tp-punto-5-consideraciones-tecnicas.md`** está el entregable del **P
 marco teórico del SEO técnico como infraestructura para buscadores y crawlers de IA, los **4 ejes priorizados**
 (Mobile-First/WPO y Core Web Vitals, control de rastreo + **IndexNow**, paridad SSR/JS y datos estructurados avanzados),
 la auditoría de WPO del sitio (71/71 imágenes con `width`/`height`, lazy loading selectivo) y los esquemas JSON-LD
-implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`). También documenta y justifica
+implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`). Incluye además el caso práctico del
+**aviso legal** (`aviso-legal.html`): página pública enlazada en el footer pero **excluida de indexación** con
+`noindex, follow` y **sin** bloqueo en `robots.txt`, para no impedir que Google lea la directiva —la distinción entre
+**control de rastreo** (`robots.txt`) y **control de indexación** (`noindex`)—. También documenta y justifica
 la **configuración móvil elegida**: de las tres que reconoce Google (*responsive design*, *dynamic serving* y *URLs separadas*),
 el sitio usa **responsive design** (URL única, mismo HTML, viewport en las 23 páginas y media queries), e incluye un
 **bloque listo para usar como slide** en la presentación final.
