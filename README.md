@@ -46,12 +46,14 @@ web-multipage/
 │   ├── tp-punto-2-keyword-research-arquitectura.md → TP final SEO+GEO · Punto 2 (keywords y arquitectura)
 │   ├── tp-punto-3-plan-onpage.md        → TP final SEO+GEO · Punto 3 (plan on-page)
 │   ├── tp-punto-4-offpage-citabilidad.md → TP final SEO+GEO · Punto 4 (off-page y citabilidad IA)
-│   └── tp-punto-5-consideraciones-tecnicas.md → TP final SEO+GEO · Punto 5 (consideraciones técnicas)
+│   ├── tp-punto-5-consideraciones-tecnicas.md → TP final SEO+GEO · Punto 5 (consideraciones técnicas)
+│   └── tp-punto-6-dashboard-seguimiento.md → TP final SEO+GEO · Punto 6 (dashboard SEO + GEO)
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
 │   ├── main.js                         → Menú móvil, scroll, animaciones, año dinámico
-│   └── tools.js                        → Lógica de la calculadora y el auditor
+│   ├── tools.js                        → Lógica de la calculadora y el auditor
+│   └── analytics.js                    → Data Layer + GTM (GTM-T5N7DK76) y helper de eventos
 ├── assets/
 │   ├── logo-mark.png                   → Logotipo FG · versión degradado (fondos claros)
 │   ├── logo-mark-light.png             → Logotipo FG · versión blanca (fondos oscuros)
@@ -193,6 +195,12 @@ marco teórico del SEO técnico como infraestructura para buscadores y crawlers 
 (Mobile-First/WPO y Core Web Vitals, control de rastreo + **IndexNow**, paridad SSR/JS y datos estructurados avanzados),
 la auditoría de WPO del sitio (71/71 imágenes con `width`/`height`, lazy loading selectivo) y los esquemas JSON-LD
 implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`).
+
+En **`docs/tp-punto-6-dashboard-seguimiento.md`** está el entregable del **Punto 6 — Dashboard de seguimiento (SEO + GEO)**:
+marco teórico del "Gran Desacople", la arquitectura en **Looker Studio** (Search Console + GA4 + Ahrefs Brand Radar),
+las **matrices de KPIs** por perfil (Fran y Matías) con herramienta, frecuencia y justificación, y el **protocolo mensual
+de monitoreo GEO + Gap Analysis**. También documenta la medición implementada en el sitio: **GTM `GTM-T5N7DK76`** +
+eventos personalizados (`calc_b2b_submit`, `audit_emq_submit`, etc.) y el canal **"AI" por referrer** en GA4.
 
 ---
 
