@@ -23,6 +23,71 @@ Google evalúa e indexa exclusivamente con su **rastreador móvil** (*mobile-fir
 - *Fran (Growth B2B):* garantizar carga instantánea en conexiones móviles corporativas durante eventos presenciales.
 - *Matías (Data Science):* optimizar la ejecución de la herramienta interactiva para no penalizar el INP.
 
+#### Medir, no suponer: cómo se obtienen estos indicadores
+
+Los umbrales de la tabla **no se cumplen por declaración**: hay que **entrar a una página y medirlos**. La evaluación de Google no usa el promedio, sino el **percentil 75** de las cargas reales, **separando móvil y escritorio**: al menos el 75 % de las visitas debe alcanzar el umbral "bueno" en las tres métricas **a la vez** para que la página apruebe.
+
+**Dos formas de medir, que se complementan:**
+
+| Tipo | Fuente | Herramientas | Para qué sirve |
+|---|---|---|---|
+| **Datos de campo** | Usuarios reales (Chrome User Experience Report, **CrUX**) | PageSpeed Insights, Search Console, Chrome DevTools | Radiografía real del sitio en el percentil 75 |
+| **Datos de laboratorio** | Entorno simulado | **Lighthouse** | Diagnosticar y prevenir problemas antes de publicar |
+
+> ⚠️ **Salvedad clave:** Lighthouse **no puede medir INP** (en un entorno simulado no hay un usuario real interactuando). En su lugar reporta **Total Blocking Time (TBT)** como aproximación. Por eso el laboratorio es excelente para diagnosticar, pero **no reemplaza la medición de campo**: la experiencia real depende del dispositivo, la red y el comportamiento de cada persona.
+
+**Protocolo de medición (paso a paso, para dejar registro en el PDF):**
+
+1. Entrar a **PageSpeed Insights** (`pagespeed.web.dev`) y pegar la URL de la página a evaluar.
+2. Leer el **bloque superior** del informe = *datos de campo* (CrUX). Si la página es nueva o tiene poco tráfico, puede no haber datos de campo todavía.
+3. Leer el **informe de Lighthouse** = *datos de laboratorio* (LCP, CLS y **TBT** en lugar de INP).
+4. Repetir la corrida en **móvil y escritorio**, y anotar **LCP / INP / CLS del percentil 75** contrastándolos contra los umbrales "bueno".
+5. Guardar **captura de pantalla + tabla de resultados** para adjuntar al PDF entregable.
+
+**Plantilla de registro (completar por página):**
+
+| Página | Dispositivo | LCP (≤ 2,5 s) | INP (≤ 200 ms) | CLS (≤ 0,1) | Estado |
+|---|---|---|---|---|---|
+| `/` (home) | Móvil | | | | |
+| `/` (home) | Escritorio | | | | |
+| Página de conversión | Móvil | | | | |
+
+**Palancas WPO para corregir (según la documentación de Google):**
+
+- Priorizar la **imagen principal del LCP** y **nunca** aplicarle carga diferida (*lazy loading*).
+- Aplicar `loading="lazy"` **solo** a las imágenes que están por debajo del pliegue.
+- Reservar siempre las **dimensiones** (`width`/`height`) de imágenes, videos y anuncios → evita los saltos que disparan el **CLS**.
+- Reducir el **trabajo de JavaScript en el hilo principal** → mejora el **INP**.
+
+> **Contexto SEO:** los Core Web Vitals son **una señal entre muchas**, no la única. La **relevancia y la calidad del contenido** siguen teniendo el peso primario, así que buscar un puntaje perfecto solo por SEO no es el mejor uso del tiempo. El objetivo real es **mejorar la experiencia de las personas**, que es lo que los sistemas de Google buscan premiar.
+
+#### Las tres configuraciones móviles de Google
+
+Google reconoce **tres formas** de construir un sitio que funcione bien en celulares, y cada una exige cuidados distintos:
+
+| Configuración | Cómo trabaja | Estructura | Costo de mantenimiento |
+|---|---|---|---|
+| **Responsive design** (diseño responsivo) | El servidor entrega el **mismo HTML en la misma URL**, sin importar el dispositivo; el diseño se adapta al tamaño de pantalla | 1 URL · 1 HTML | Bajo — contenido y metadatos idénticos en móvil y desktop |
+| **Dynamic serving** (publicación dinámica) | **Misma URL**, pero el servidor entrega un **HTML distinto según el dispositivo**, apoyándose en el encabezado `Vary: user-agent` | 1 URL · N HTML | Alto — hay que mantener variantes sincronizadas |
+| **Separate URLs** (URLs separadas) | **Páginas distintas en direcciones distintas**, típicamente `m.ejemplo.com` para la versión móvil | N URLs · N HTML | Alto — hay que mantener dos versiones sincronizadas |
+
+**La opción que Google recomienda es *responsive design***, porque es la más fácil de implementar y mantener: al compartir contenido y metadatos entre móvil y desktop, desaparecen los errores de desincronización. Las otras dos configuraciones obligan a mantener dos versiones en paralelo, y ahí es donde suelen aparecer los problemas.
+
+**Decisión del proyecto: `web-multipage` usa *responsive design*.** Motivos:
+
+1. **Mobile-first indexing** — Google evalúa con su rastreador móvil; con una sola versión, lo que rastrea en móvil es exactamente el mismo HTML que ve el usuario de escritorio.
+2. **Paridad SSR** — el mismo HTML estático sirve a buscadores, crawlers de IA y navegadores, sin ramas condicionales por user-agent.
+3. **Menor costo y menor riesgo** — no hay dos plantillas que sincronizar, por lo que no puede haber *content drift* ni *cloaking* accidental.
+4. **Alineado con el stack** — HTML/CSS/JS puro, sin servidor de aplicación que haga *sniffing* de user-agent.
+
+**Evidencia en el sitio (y descarte explícito de las otras dos configuraciones):**
+
+- **URL única por página** y el mismo HTML para todos los dispositivos (23 archivos `.html`, uno por vista).
+- `<meta name="viewport" content="width=device-width, initial-scale=1.0" />` presente en **las 23 páginas** (verificado con `grep -rl 'name="viewport"' --include="*.html"`).
+- Adaptación por **media queries** en `css/styles.css`: `@media (max-width: 960px)`, `@media (max-width: 760px)`, `@media (max-width: 420px)` y `@media print`.
+- **Sin encabezado `Vary: user-agent`** → no se usa *dynamic serving*.
+- **Sin subdominio `m.featuregrowth.cl`** ni rutas móviles paralelas → no se usan *separate URLs*.
+
 ### Eje 2 — Control de rastreo e indexación (robots.txt + sitemap + IndexNow)
 Los rastreadores de IA usan las **mismas reglas de `robots.txt`** que los buscadores tradicionales. Estrategia: permitir explícitamente a los crawlers de IA el acceso a guías y herramientas, publicar un `sitemap.xml` con la jerarquía completa (pillars, spokes, tools) y notificar cambios con **IndexNow**.
 
@@ -64,7 +129,7 @@ Implementados según la tabla del Eje 4, en el `<head>` de cada página (JSON-LD
 
 ## 4. Checklist de cumplimiento
 
-- [x] Meta viewport + diseño responsive (mobile-first).
+- [x] Configuración móvil **responsive design** (de las tres de Google) — Meta viewport en las **23 páginas** + media queries en `styles.css` (*mobile-first*).
 - [x] `width`/`height` en todas las imágenes (CLS).
 - [x] Lazy loading selectivo (sin lazy en zona hero/LCP).
 - [x] `robots.txt` con apertura explícita a crawlers de IA.
@@ -73,3 +138,52 @@ Implementados según la tabla del Eje 4, en el `<head>` de cada página (JSON-LD
 - [x] Contenido clave en HTML estático (paridad SSR).
 - [x] JSON-LD avanzado: `Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`, `CollectionPage`.
 - [x] Datos estructurados válidos (verificación automática en el build local).
+
+---
+
+## 5. Material para la presentación final (slide)
+
+> Bloques **autocontenidos**, pensados como **diapositivas** del documento final. Se pueden copiar tal cual a la presentación. El primero cubre las **tres configuraciones móviles** de Google; el segundo, la **medición de los Core Web Vitals**.
+
+### Slide 1 — «Sitio apto para móviles: las tres configuraciones de Google»
+
+**Google reconoce tres formas de construir un sitio que funcione bien en celulares, y conviene conocerlas porque cada una exige cuidados distintos:**
+
+- **Responsive design (diseño responsivo):** el servidor entrega el **mismo HTML en la misma URL**, sin importar el dispositivo, y el diseño se adapta al tamaño de pantalla. Es la opción que Google recomienda, por ser la más fácil de implementar y mantener.
+- **Dynamic serving (publicación dinámica):** se usa la **misma URL**, pero el servidor entrega un **HTML distinto según el dispositivo**, apoyándose en el encabezado `Vary: user-agent`.
+- **Separate URLs (URLs separadas):** se sirven **páginas distintas en direcciones distintas**, típicamente del estilo `m.ejemplo.com` para la versión móvil.
+
+En el diseño responsivo, **contenido y metadatos son idénticos** en ambas versiones, lo que minimiza los errores. Las otras dos configuraciones requieren mantener **dos versiones sincronizadas**, y ahí es donde suelen aparecer los problemas.
+
+> ✅ **La configuración que usa `featuregrowth.cl` es *Responsive design*:** una URL por página, el mismo HTML para todos los dispositivos, `viewport` en las 23 páginas y adaptación por *media queries* en `css/styles.css`.
+
+**Apoyos para defender la elección (notas del orador):**
+
+1. **Mobile-first indexing:** con una sola versión, el HTML que Google rastrea en móvil es el mismo que ve el usuario de escritorio.
+2. **Una sola fuente de verdad:** sin `Vary: user-agent` (→ no es *dynamic serving*) y sin `m.featuregrowth.cl` (→ no son *URLs separadas*).
+3. **Menos mantenimiento:** no hay dos plantillas que sincronizar, así no hay *content drift* ni *cloaking* accidental.
+4. **Coherente con el stack:** HTML/CSS/JS puro, sin *sniffing* de user-agent en servidor.
+
+---
+
+### Slide 2 — «Core Web Vitals: medir, no suponer»
+
+**Google mide la experiencia real con tres métricas, y no se aprueban por declaración: hay que entrar a la página y medirlas.**
+
+| Métrica | Qué mide | Umbral "bueno" |
+|---|---|---|
+| **LCP** (Largest Contentful Paint) | Velocidad de carga del contenido principal | **≤ 2,5 s** |
+| **INP** (Interaction to Next Paint) | Capacidad de respuesta / interactividad | **≤ 200 ms** |
+| **CLS** (Cumulative Layout Shift) | Estabilidad visual (evitar saltos de layout) | **≤ 0,1** |
+
+**La evaluación es por percentil, no por promedio:** al menos el **75 % de las cargas** debe alcanzar el umbral "bueno" en las **tres métricas a la vez**, y se separa **móvil** de **escritorio**.
+
+**Cómo se miden (dos fuentes complementarias):**
+- **Datos de campo** — usuarios reales, vía **CrUX**: **PageSpeed Insights**, Search Console y Chrome DevTools.
+- **Datos de laboratorio** — entorno simulado con **Lighthouse**, para diagnosticar y prevenir antes de publicar.
+
+> ⚠️ **Lighthouse no mide INP** (no hay usuario interactuando en el laboratorio): usa **Total Blocking Time (TBT)** como aproximación. El laboratorio diagnostica; la medición de campo manda.
+
+**Cierre:** los Core Web Vitals son **una señal entre muchas**; la relevancia y la calidad del contenido siguen pesando primero. El objetivo no es el puntaje perfecto, sino mejorar la experiencia real de las personas.
+
+**Evidencia a registrar (para el PDF):** captura de **PageSpeed Insights** por página (móvil y escritorio) con los valores **LCP / INP / CLS** del percentil 75.

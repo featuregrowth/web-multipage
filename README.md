@@ -195,7 +195,10 @@ En **`docs/tp-punto-5-consideraciones-tecnicas.md`** está el entregable del **P
 marco teórico del SEO técnico como infraestructura para buscadores y crawlers de IA, los **4 ejes priorizados**
 (Mobile-First/WPO y Core Web Vitals, control de rastreo + **IndexNow**, paridad SSR/JS y datos estructurados avanzados),
 la auditoría de WPO del sitio (71/71 imágenes con `width`/`height`, lazy loading selectivo) y los esquemas JSON-LD
-implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`).
+implementados (`Organization`, `Person`, `Service`, `TechArticle`, `SoftwareApplication`). También documenta y justifica
+la **configuración móvil elegida**: de las tres que reconoce Google (*responsive design*, *dynamic serving* y *URLs separadas*),
+el sitio usa **responsive design** (URL única, mismo HTML, viewport en las 23 páginas y media queries), e incluye un
+**bloque listo para usar como slide** en la presentación final.
 
 En **`docs/tp-punto-6-dashboard-seguimiento.md`** está el entregable del **Punto 6 — Dashboard de seguimiento (SEO + GEO)**:
 marco teórico del "Gran Desacople", la arquitectura en **Looker Studio** (Search Console + GA4 + Ahrefs Brand Radar),
