@@ -29,7 +29,7 @@ El dashboard se consolida en **Looker Studio**, conectando tres fuentes en paral
 
 | KPI | Descripción y relevancia técnica | Herramienta | Frecuencia | Justificación |
 |---|---|---|---|---|
-| **Ejecuciones del Auditor Signal Loss** | Auditorías de tracking iniciadas (`audit_emq_submit`) | GA4 (Custom Events vía GTM) | Semanal | Atracción del activo linkbaiting técnico (consultores, CTOs) |
+| **Escaneos del Inspector de Señal** | Escaneos de tracking completados (`inspector_scan_done`) | GA4 (Custom Events vía GTM) | Semanal | Atracción del activo linkbaiting técnico (consultores, CTOs) |
 | **Event Match Quality (EMQ) promedio** | Calificación 1–10 enviada en implementaciones CAPI | Meta Ads Manager / GA4 CAPI Server logs | Semanal | Controla salud de datos y efectividad del server-side |
 | **Tráfico orgánico técnico (spokes)** | Visitas a guías GA4 Server-Side, CAPI y Python | Search Console / GA4 | Semanal | Captación de perfil técnico y *growth engineers* |
 | **Backlinks desde dominios tech/data** | Enlaces desde GitHub, Medium, Towards Data Science, blogs | Ahrefs / Semrush / GitHub API | Mensual | Autoridad de dominio vía recursos de código |
@@ -64,9 +64,12 @@ Se ejecuta el primer día hábil de cada mes:
 | `calc_b2b_submit` | Enviar la calculadora (cálculo válido) | Engagement Tool |
 | `calc_b2b_print` | Botón "Imprimir / Guardar PDF" | Lead Generation |
 | `calc_b2b_embed_copy` | Copiar el código de inserción | Lead Generation |
-| `audit_emq_submit` | Enviar el auditor de señal | Technical Tool |
-| `audit_emq_badge_copy` | Copiar el badge de salud de tracking | Linkbaiting Engagement |
-| `audit_emq_diagnosis_copy` | Copiar el resumen del diagnóstico | Linkbaiting Engagement |
+| `inspector_scan_start` | Se lanza un escaneo del Inspector de Señal | Technical Tool |
+| `inspector_scan_done` | El escaneo termina con éxito (incluye el índice en `value`) | Technical Tool |
+| `inspector_scan_error` | El escaneo devuelve error | Technical Tool |
+| `inspector_tier2_cta` | Clic en "Agendar diagnóstico" del bloque Requiere acceso | Lead Generation |
+| `inspector_copy` | Copiar el badge o el resumen del diagnóstico | Linkbaiting Engagement |
+| `inspector_download` | Descargar el reporte en JSON | Technical Tool |
 
 Estos eventos se marcan como **Key Events** en GA4 para medir microconversiones B2B.
 

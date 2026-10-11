@@ -6,18 +6,18 @@
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-T5N7DK76');</script>
   <!-- End Google Tag Manager -->
-  <meta name="description" content="Auditor gratuito de pérdida de señal y EMQ: diagnóstico de calidad de tracking, bloqueo por adblockers y puntuación Event Match Quality para Meta Ads y Google Ads." />
-  <title>Auditor de Pérdida de Señal y Puntuación EMQ (Herramienta Gratuita) · Feature Growth</title>
+  <meta name="description" content="Inspector de Señal de Tracking de Feature Growth: escaneo técnico del marcado de eventos de tu sitio (GTM, GA4, Meta Pixel, deduplicación, consentimiento y server-side) con evidencia medida." />
+  <title>Inspector de Señal de Tracking (Herramienta Gratuita) · Feature Growth</title>
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Feature Growth" />
   <meta property="og:locale" content="es_CL" />
-  <meta property="og:title" content="Auditor de Pérdida de Señal y Puntuación EMQ" />
-  <meta property="og:description" content="Diagnóstico de calidad de tracking, bloqueo por adblockers y puntuación Event Match Quality (EMQ) para Meta Ads y Google Ads." />
-  <meta property="og:url" content="https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/" />
+  <meta property="og:title" content="Inspector de Señal de Tracking" />
+  <meta property="og:description" content="Escaneo técnico del marcado de eventos web: stack de medición, deduplicación, consentimiento y server-side, con evidencia medible." />
+  <meta property="og:url" content="https://featuregrowth.cl/herramientas/inspector-senal-tracking/" />
   <meta property="og:image" content="https://featuregrowth.cl/assets/img/servicio-crm.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Auditor de Pérdida de Señal y EMQ" />
-  <meta name="twitter:description" content="Diagnóstico técnico de tracking y puntuación EMQ para Meta Ads y Google Ads." />
+  <meta name="twitter:title" content="Inspector de Señal de Tracking" />
+  <meta name="twitter:description" content="Escaneo técnico del marcado de eventos web con evidencia medible." />
   <meta name="twitter:image" content="https://featuregrowth.cl/assets/img/servicio-crm.jpg" />
   <link rel="icon" href="../../assets/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png" />
@@ -32,12 +32,20 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Auditor Técnico de Pérdida de Señal y Puntuación EMQ",
-  "description": "Auditor gratuito de pérdida de señal y EMQ: diagnóstico de calidad de tracking, bloqueo por adblockers y puntuación Event Match Quality para Meta Ads y Google Ads.",
+  "name": "Inspector de Señal de Tracking",
+  "description": "Herramienta web que escanea el marcado de eventos de un sitio: inventario de tags (GTM, GA4, Meta Pixel), deduplicación, consentimiento y server-side, con evidencia medible y sin métricas inventadas.",
   "inLanguage": "es-CL",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
+  "isAccessibleForFree": true,
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CLP" },
+  "featureList": [
+    "Inventario de tecnologías de medición (GTM, GA4, Meta Pixel, TikTok, LinkedIn)",
+    "Detección de deduplicación (event_id) y datos personales sin hashear",
+    "Detección de consentimiento (CMP / Consent Mode)",
+    "Detección de subdominio server-side de primera parte",
+    "Índice de señal con rúbrica transparente"
+  ],
   "author": {
     "@type": "Person",
     "name": "Matías Chaud",
@@ -50,7 +58,7 @@
     "name": "Feature Growth",
     "url": "https://featuregrowth.cl"
   },
-  "mainEntityOfPage": "https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/"
+  "mainEntityOfPage": "https://featuregrowth.cl/herramientas/inspector-senal-tracking/"
 }
   </script>
 </head>
@@ -99,10 +107,10 @@
         <div class="container">
           <div class="page-hero__inner">
             <nav class="breadcrumb" aria-label="Ruta de navegación">
-              <a href="../../index.html">Inicio</a><span>/</span><a href="../../herramientas/">Herramientas</a><span>/</span><span>Auditor de señal y EMQ</span>
+              <a href="../../index.html">Inicio</a><span>/</span><a href="../../herramientas/">Herramientas</a><span>/</span><span>Inspector de señal</span>
             </nav>
-            <p class="page-hero__eyebrow">Herramienta · Tracking · EMQ</p>
-            <h1 class="page-hero__title">Auditor Técnico de Pérdida de Señal y Puntuación EMQ</h1>
+            <p class="page-hero__eyebrow">Herramienta · Tracking · Medición</p>
+            <h1 class="page-hero__title">Inspector de Señal de Tracking</h1>
             <p class="article__byline">Herramienta de <strong>Matías</strong> · Cofundador · Data &amp; Tecnología · <a href="../../equipo.html">Conocer al equipo</a></p>
           </div>
         </div>
@@ -110,71 +118,97 @@
 
       <section class="section">
         <div class="container prose">
-      <section>
-        <h2>Diagnóstico de efectividad de seguimiento e impacto de adblockers</h2>
-        <p class="answer"><strong>El Auditor de Pérdida de Señal de Feature Growth es una herramienta de diagnóstico técnico que analiza la calidad del marcado de eventos web, detecta el porcentaje de bloqueo por cookies de terceros y simula la puntuación Event Match Quality (EMQ) para campañas de Meta Ads y Google Ads.</strong></p>
-      </section>
+          <section>
+            <h2>¿Qué tan sana está la señal de tu sitio?</h2>
+            <p class="answer"><strong>El Inspector de Señal de Tracking de Feature Growth escanea el HTML público de tu sitio y reporta, con evidencia, qué tecnologías de medición tienes instaladas (GTM, GA4, Meta Pixel) y qué tan bien está marcado el tracking: deduplicación de eventos, datos personales sin hashear, consentimiento y presencia de server-side.</strong></p>
+            <p>Es un escáner <strong>automático</strong> real. Pero solo reporta lo que puede <em>medir</em>: lo que no es observable desde afuera se muestra etiquetado como <strong>estimado</strong> o como <strong>requiere acceso</strong>, nunca como un dato inventado.</p>
+          </section>
 
-      <section>
-        <h2>Consola de diagnóstico técnico de tracking</h2>
-        <p>Ingresá la URL de tu dominio y te enviamos un reporte de salud de datos con los puntos críticos de medición. El análisis es manual y personalizado (no automatizado sobre tu sitio):</p>
+          <section>
+            <h2>Consola de escaneo</h2>
+            <p>Ingresá la URL de tu dominio. El escaneo tarda unos segundos y no requiere registro:</p>
 
-        <form class="tool-form tool-form--narrow" id="auditor-form" novalidate>
-          <div class="field">
-            <label for="auditor-url">URL del sitio a auditar</label>
-            <input type="url" id="auditor-url" placeholder="https://tudominio.com" required />
-          </div>
-          <button class="btn btn--primary" type="submit">Solicitar auditoría</button>
-          <p class="tool-note" id="auditor-note" hidden></p>
-        </form>
+            <form class="tool-form tool-form--narrow" id="inspector-form" novalidate>
+              <div class="field">
+                <label for="inspector-url">URL del sitio a escanear</label>
+                <input type="url" id="inspector-url" placeholder="https://tudominio.com" required />
+              </div>
+              <button class="btn btn--primary" type="submit">Escanear sitio</button>
+              <p class="tool-note" id="inspector-note" hidden></p>
+            </form>
 
-        <h3>Factores evaluados en el reporte de salud de datos</h3>
-        <ul>
-          <li>Detección de solicitudes bloqueadas por navegadores con restricciones ITP / ETP.</li>
-          <li>Verificación del parámetro <code>event_id</code> para la deduplicación entre el Pixel de navegador y Meta CAPI.</li>
-          <li>Puntuación estimada de Event Match Quality (EMQ) según los parámetros enviados (Email, Phone, External ID).</li>
-          <li>Presencia y correcta configuración de un subdominio server-side de primera parte.</li>
-        </ul>
-        <p>Para resolver los problemas detectados en la auditoría, consultá la guía de <a href="../../noticias/optimizar-event-match-quality-meta-capi/">optimización de Meta CAPI</a> o volvé al <a href="../../marketing-data-science/">Manual de Marketing Data Science</a>.</p>
-      </section>
+            <div id="inspector-status" class="inspector-status" hidden aria-live="polite">
+              <span class="spinner" aria-hidden="true"></span>
+              <span id="inspector-status-text">Descargando el sitio y analizando el marcado…</span>
+            </div>
 
-      <section>
-        <h2>Compartí tu badge de salud de tracking</h2>
-        <p>Si sos agencia o consultor, podés incluir este badge en tus reportes o en tu sitio, con enlace de atribución a Feature Growth:</p>
-        <div class="badge-box">
-          <p>Vista previa del badge:</p>
-          <a class="tracking-badge" href="https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/">
-            <span class="tracking-badge__label">Tracking Health</span>
-            <span class="tracking-badge__value">Auditoría EMQ</span>
-            <span class="tracking-badge__source">por Feature Growth</span>
-          </a>
-          <pre class="embed-code" id="embed-badge-code" style="margin-top:18px;">&lt;a href="https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/" style="display:inline-flex;flex-direction:column;padding:16px 22px;border-radius:14px;background:linear-gradient(135deg,#053A49,#1F8B80);color:#fff;font-family:Montserrat,sans-serif;text-decoration:none;"&gt;
+            <div id="inspector-report" class="report" hidden></div>
+          </section>
+
+          <section>
+            <h2>Cómo leer el reporte</h2>
+            <div class="legend">
+              <p class="legend__item"><span class="tag tag--measured">Medido</span> Se observó directamente en el HTML o los encabezados del sitio.</p>
+              <p class="legend__item"><span class="tag tag--estimated">Estimado</span> Se deriva de lo medido (índice, DNS). Tiene margen de error.</p>
+              <p class="legend__item"><span class="tag tag--access">Requiere acceso</span> No es observable desde afuera; necesita permisos sobre tu Meta/GA4.</p>
+            </div>
+
+            <h3>Qué mide el escáner</h3>
+            <ul>
+              <li>Inventario de tags: Google Tag Manager, GA4, Meta Pixel, TikTok, LinkedIn y otros.</li>
+              <li>Deduplicación: presencia de <code>event_id</code> para Pixel ↔ Meta CAPI.</li>
+              <li>Datos personales: correos en claro dentro de scripts y parámetros de matching hasheados.</li>
+              <li>Consentimiento: CMP o Consent Mode detectados.</li>
+              <li>Server-side de primera parte: subdominio propio (estimado).</li>
+              <li>Placeholders sin reemplazar (<code>GTM-XXXX</code>, <code>PIXEL_ID</code>).</li>
+            </ul>
+
+            <h3>Qué NO mide (y por qué)</h3>
+            <ul>
+              <li>El <strong>EMQ real</strong> de Meta: solo lo calcula Meta sobre su grafo de usuarios.</li>
+              <li>El <strong>% real de bloqueo</strong> por adblock/ITP: depende del navegador de cada visitante.</li>
+              <li>La <strong>pérdida de señal medida</strong>: requiere cruzar eventos browser ↔ server-side.</li>
+            </ul>
+            <p>Esas tres van en el bloque <strong>Requiere acceso</strong>, que se resuelve en un diagnóstico con permisos de solo lectura.</p>
+          </section>
+
+          <section>
+            <h2>Compartí tu badge de salud de tracking</h2>
+            <p>Si sos agencia o consultor, podés incluir este badge en tus reportes o en tu sitio, con enlace de atribución a Feature Growth:</p>
+            <div class="badge-box">
+              <p>Vista previa del badge:</p>
+              <a class="tracking-badge" href="https://featuregrowth.cl/herramientas/inspector-senal-tracking/">
+                <span class="tracking-badge__label">Tracking Health</span>
+                <span class="tracking-badge__value">Inspector de señal</span>
+                <span class="tracking-badge__source">por Feature Growth</span>
+              </a>
+              <pre class="embed-code" id="embed-badge-code" style="margin-top:18px;">&lt;a href="https://featuregrowth.cl/herramientas/inspector-senal-tracking/" style="display:inline-flex;flex-direction:column;padding:16px 22px;border-radius:14px;background:linear-gradient(135deg,#053A49,#1F8B80);color:#fff;font-family:Montserrat,sans-serif;text-decoration:none;"&gt;
   &lt;span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9E8E4;"&gt;Tracking Health&lt;/span&gt;
-  &lt;span style="font-weight:800;font-size:20px;"&gt;Auditoría EMQ&lt;/span&gt;
+  &lt;span style="font-weight:800;font-size:20px;"&gt;Inspector de señal&lt;/span&gt;
   &lt;span style="font-size:11px;color:rgba(240,255,254,.85);"&gt;por Feature Growth&lt;/span&gt;
 &lt;/a&gt;</pre>
-          <div class="copy-row">
-            <button class="btn btn--outline" type="button" data-copy-target="#embed-badge-code">Copiar badge</button>
-            <span class="copy-note"></span>
-          </div>
-        </div>
+              <div class="copy-row">
+                <button class="btn btn--outline" type="button" data-copy-target="#embed-badge-code">Copiar badge</button>
+                <span class="copy-note"></span>
+              </div>
+            </div>
 
-        <h3>Copiar resumen del diagnóstico</h3>
-        <p>Copiá el marco de revisión para pegarlo en tu informe o enviarlo a tu equipo de desarrollo:</p>
-        <div class="embed-box">
-          <pre class="embed-code" id="audit-summary">Auditoría de pérdida de señal y EMQ — marco de revisión (Feature Growth)
-1) Cookies de terceros / restricciones ITP-ETP: ¿qué % de solicitudes se bloquea?
+            <h3>Copiar resumen del diagnóstico</h3>
+            <p>Copiá el marco de revisión para pegarlo en tu informe o enviarlo a tu equipo de desarrollo:</p>
+            <div class="embed-box">
+              <pre class="embed-code" id="audit-summary">Auditoría de señal de tracking — marco de revisión (Feature Growth)
+1) Stack de medición: ¿GTM, GA4 y Meta Pixel correctamente instalados?
 2) Deduplicación: ¿el event_id coincide entre el Pixel y Meta CAPI?
-3) Parámetros de matching enviados: Email (SHA256), Phone (SHA256), external_id, _fbp, _fbc.
-4) EMQ Meta estimado (1-10): objetivo ≥ 8.5.
+3) Datos personales: ¿se hashea la PII (SHA-256) antes de enviarla?
+4) Consentimiento: ¿una CMP bloquea los tags hasta el consentimiento?
 5) Server-side de primera parte: subdominio propio activo y con datos.
-Fuente y auditoría: https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/</pre>
-          <div class="copy-row">
-            <button class="btn btn--outline" type="button" data-copy-target="#audit-summary">Copiar diagnóstico</button>
-            <span class="copy-note"></span>
-          </div>
-        </div>
-      </section>
+Fuente y escaneo: https://featuregrowth.cl/herramientas/inspector-senal-tracking/</pre>
+              <div class="copy-row">
+                <button class="btn btn--outline" type="button" data-copy-target="#audit-summary">Copiar diagnóstico</button>
+                <span class="copy-note"></span>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
 
@@ -224,11 +258,11 @@ Fuente y auditoría: https://featuregrowth.cl/herramientas/auditor-signal-loss-e
     <section class="section cta-band">
       <div class="container">
         <p class="section__eyebrow">Siguiente paso</p>
-        <h2 class="section__title">Revisemos tu pérdida de señal</h2>
-        <p class="section__lead" style="max-width:56ch;margin-inline:auto;">Solicitá el diagnóstico técnico y te enviamos los puntos críticos de tu medición.</p>
+        <h2 class="section__title">Resolvamos los puntos que requieren acceso</h2>
+        <p class="section__lead" style="max-width:56ch;margin-inline:auto;">Escaneá tu sitio y después agendamos un diagnóstico para medir tu pérdida de señal real y tu EMQ con permisos de solo lectura.</p>
         <div class="cta-band__actions">
           <a class="btn btn--primary" href="../../contacto.html">Agendar diagnóstico</a>
-          <a class="btn btn--outline" href="../../equipo.html">Conocer al equipo</a>
+          <a class="btn btn--outline" href="../../noticias/optimizar-event-match-quality-meta-capi/">Guía de EMQ</a>
         </div>
       </div>
     </section>
@@ -261,7 +295,7 @@ Fuente y auditoría: https://featuregrowth.cl/herramientas/auditor-signal-loss-e
           <li><a href="../../growth-marketing-b2b/">Growth Marketing B2B</a></li>
           <li><a href="../../marketing-data-science/">Marketing Data Science</a></li>
           <li><a href="../../herramientas/calculadora-presupuesto-growth/">Calculadora de presupuesto B2B</a></li>
-          <li><a href="../../herramientas/auditor-signal-loss-emq/">Auditor de señal y EMQ</a></li>
+          <li><a href="../../herramientas/inspector-senal-tracking/">Inspector de señal de tracking</a></li>
           <li><a href="../../noticias/">Todas las publicaciones</a></li>
         </ul>
       </div>
@@ -275,7 +309,7 @@ Fuente y auditoría: https://featuregrowth.cl/herramientas/auditor-signal-loss-e
         </ul>
         <div class="social-row" style="margin-top:16px;">
           <a class="social-btn" href="https://www.instagram.com/featuregrowth/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.9.07-1.1.05-1.7.24-2.1.4-.5.2-.9.44-1.3.84-.4.4-.64.8-.84 1.3-.16.4-.35 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.07 4.7c.05 1.1.24 1.7.4 2.1.2.5.44.9.84 1.3.4.4.8.64 1.3.84.4.16 1 .35 2.1.4 1.2.07 1.6.07 4.7.07s3.5 0 4.7-.07c1.1-.05 1.7-.24 2.1-.4.5-.2.9-.44 1.3-.84.4-.4.64-.8.84-1.3.16-.4.35-1 .4-2.1.07-1.2.07-1.6.07-4.7s0-3.5-.07-4.7c-.05-1.1-.24-1.7-.4-2.1-.2-.5-.44-.9-.84-1.3-.4-.4-.8-.64-1.3-.84-.4-.16-1-.35-2.1-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.15 1.15 0 1 1-2.3 0 1.15 1.15 0 0 1 2.3 0z"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.23 1 .5 1.4.9.4.4.7.8.9 1.4.17.4.37 1 .42 2.2.07 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.05 1.2-.25 1.8-.42 2.2-.23.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.17-1 .37-2.2.42-1.3.07-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.05-1.8-.25-2.2-.42-.6-.23-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.17-.4-.37-1-.42-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.05-1.2.25-1.8.42-2.2.23-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.17 1-.37 2.2-.42C8.4 2.2 8.8 2.2 12 2.2z"/></svg>
             Instagram
           </a>
           <a class="social-btn" href="https://www.facebook.com/profile.php?id=61592516520817" target="_blank" rel="noopener" aria-label="Facebook">
@@ -292,6 +326,6 @@ Fuente y auditoría: https://featuregrowth.cl/herramientas/auditor-signal-loss-e
   </footer>
 
   <script src="../../js/main.js"></script>
-  <script src="../../js/tools.js"></script>
+  <script src="../../js/inspector.js"></script>
 </body>
 </html>

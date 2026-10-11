@@ -344,16 +344,19 @@ Ya en **https://analytics.google.com**, dentro de la propiedad:
 
 ## Tabla de eventos del proyecto
 
-Todos se disparan vía `js/tools.js` → `fgTrack()` → `dataLayer.push`. Crea un disparador + etiqueta GA4 **por cada uno**.
+Todos se disparan vía `js/tools.js` (calculadora) o `js/inspector.js` (Inspector de Señal) → `fgTrack()` → `dataLayer.push`. Crea un disparador + etiqueta GA4 **por cada uno**.
 
 | Nombre del evento | Se dispara cuando… | `event_category` | `event_label` |
 |---|---|---|---|
 | `calc_b2b_submit` | Se envía el formulario de la Calculadora de presupuesto B2B | `Engagement Tool` | `Calculadora Presupuesto B2B` |
-| `audit_emq_submit` | Se envía la solicitud de auditoría de señal/EMQ | `Technical Tool` | `Auditor Signal Loss` |
+| `inspector_scan_start` | Se lanza un escaneo en el Inspector de Señal | `Technical Tool` | URL escaneada |
+| `inspector_scan_done` | El escaneo termina (incluye el índice en `value`) | `Technical Tool` | host escaneado |
+| `inspector_scan_error` | El escaneo falla | `Technical Tool` | código HTTP |
+| `inspector_tier2_cta` | Clic en "Agendar diagnóstico" | `Lead Generation` | — |
+| `inspector_copy` | Se copia el badge o el diagnóstico | `Linkbaiting Engagement` | destino copiado |
+| `inspector_download` | Se descarga el reporte JSON | `Technical Tool` | host escaneado |
 | `calc_b2b_print` | Se pulsa imprimir en la calculadora | `Lead Generation` | `Calculadora Presupuesto B2B` |
 | `calc_b2b_embed_copy` | Se copia el código de inserción de la calculadora | `Lead Generation` | `Calculadora Presupuesto B2B` |
-| `audit_emq_badge_copy` | Se copia el código del badge del auditor | `Linkbaiting Engagement` | `Auditor Signal Loss` |
-| `audit_emq_diagnosis_copy` | Se copia el diagnóstico del auditor | `Linkbaiting Engagement` | `Auditor Signal Loss` |
 
 Además, GTM/GA4 registran automáticamente:
 

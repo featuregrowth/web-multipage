@@ -5,6 +5,10 @@
 #  Uso:  ./ver-sitio.sh           (puerto por defecto 8000)
 #        ./ver-sitio.sh 8080      (elegís el puerto)
 #  Detener: Ctrl + C
+#
+#  Con Node disponible usa server.js, que además ejecuta el backend del
+#  Inspector de Señal (/api/scan). Sin Node, cae a un servidor estático
+#  de Python (el escáner no funcionará, solo la navegación).
 # ==========================================================================
 set -e
 
@@ -27,4 +31,10 @@ echo "Presioná Ctrl + C para detenerlo."
   fi
 ) &
 
+if command -v node >/dev/null 2>&1; then
+  echo "Backend del Inspector de Señal activo (server.js)."
+  exec node server.js "$PORT"
+fi
+
+echo "Aviso: Node no está instalado; se sirve estático y el Inspector no escaneará."
 exec python3 -m http.server "$PORT"

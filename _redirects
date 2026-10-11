@@ -5,3 +5,7 @@
 # Las guías se movieron de /blog/ a /noticias/
 /blog/*           /noticias/:splat    301
 /blog             /noticias/          301
+
+# El auditor pasó a ser el Inspector de Señal de Tracking
+/herramientas/auditor-signal-loss-emq/  /herramientas/inspector-senal-tracking/  301
+/herramientas/auditor-signal-loss-emq   /herramientas/inspector-senal-tracking/  301

@@ -64,7 +64,7 @@
 | marketing data science consultoría | Comercial | Alto | SEO / GEO | `/marketing-data-science/` |
 | cómo implementar GA4 server side | Informacional técnica | Alto | SEO / AEO / GEO | `/noticias/implementar-ga4-server-side-gcp/` |
 | mejores prácticas Meta CAPI e-commerce | Informacional / Comercial | Alto | SEO / GEO | `/noticias/optimizar-event-match-quality-meta-capi/` |
-| auditoría de event match quality score | Transaccional / Tool | Alto | Off-Page / Linkbaiting | `/herramientas/auditor-signal-loss-emq/` |
+| auditoría de event match quality score | Transaccional / Tool | Alto | Off-Page / Linkbaiting | `/herramientas/inspector-senal-tracking/` |
 | soluciones a la pérdida de cookies de terceros | Informacional | Alto | AEO / GEO | `/marketing-data-science/` |
 | modelos de atribución con python y marketing | Informacional técnica | Alto | SEO / GEO | `/noticias/modelos-atribucion-marketing-python/` |
 | automatizaciones de marketing con python | Informacional | Medio | SEO | `/servicios/crm-automatizacion-ia.html` |
@@ -79,7 +79,7 @@
 2. **Spoke 1 (Tracking cloud):** `/noticias/implementar-ga4-server-side-gcp/` — despliegue de contenedor en GCP y GTM Server.
 3. **Spoke 2 (Meta CAPI & privacidad):** `/noticias/optimizar-event-match-quality-meta-capi/` — elevación del EMQ con normalización y *hash* SHA256.
 4. **Spoke 3 (Modelado en Python):** `/noticias/modelos-atribucion-marketing-python/` — Markov y Shapley sobre datos de BigQuery.
-5. **Tool Page (Linkbaiting):** `/herramientas/auditor-signal-loss-emq/` — auditoría de pérdida de señal y EMQ.
+5. **Tool Page (Linkbaiting):** `/herramientas/inspector-senal-tracking/` — inspector de señal de tracking: stack de medición, deduplicación, PII sin hashear, consentimiento y server-side.
 
 ---
 
@@ -105,7 +105,7 @@
 | Spoke GA4 | `/blog/implementar-ga4-server-side-gcp/` | `/noticias/implementar-ga4-server-side-gcp/` | ✅ (adaptada) |
 | Spoke EMQ | `/blog/optimizar-event-match-quality-meta-capi/` | `/noticias/optimizar-event-match-quality-meta-capi/` | ✅ (adaptada) |
 | Spoke atribución | `/blog/modelos-atribucion-marketing-python/` | `/noticias/modelos-atribucion-marketing-python/` | ✅ (adaptada) |
-| Tool Matías | `/herramientas/auditor-signal-loss-emq/` | igual | ✅ |
+| Tool Matías | `/herramientas/inspector-senal-tracking/` | igual | ✅ |
 
 ### 5.2 Siloing — ✅ cumplido
 - Enlaces verticales a los pillars presentes.

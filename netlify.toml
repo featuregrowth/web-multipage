@@ -1,0 +1,6 @@
+# Netlify · sitio estático + funciones serverless
+# El escáner del Inspector de Señal corre en functions/scan.js (Node, sin build).
+
+[build]
+  publish = "."
+  functions = "functions"

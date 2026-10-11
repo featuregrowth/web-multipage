@@ -17,7 +17,7 @@ El contenido no se publica al azar: respeta una arquitectura de **clusters temá
 |------|---------|-----------------------|----------|
 | **Pillar (Hub central)** | Tema amplio, cabecera del silo. Captura la búsqueda genérica y distribuye autoridad. | **Raíz del dominio** (carpeta propia) | `/growth-marketing-b2b/`, `/marketing-data-science/` |
 | **Spoke (Artículo)** | Profundiza una intención informacional/comparativa y enlaza jerárquicamente al pillar. | **`/noticias/`** | `/noticias/demand-gen-vs-lead-gen-b2b/`, `/noticias/implementar-ga4-server-side-gcp/` |
-| **Tool (Herramienta)** | Resuelve un problema práctico con un activo interactivo; imán de enlaces y menciones (linkbaiting). | **`/herramientas/`** | `/herramientas/calculadora-presupuesto-growth/`, `/herramientas/auditor-signal-loss-emq/` |
+| **Tool (Herramienta)** | Resuelve un problema práctico con un activo interactivo; imán de enlaces y menciones (linkbaiting). | **`/herramientas/`** | `/herramientas/calculadora-presupuesto-growth/`, `/herramientas/inspector-senal-tracking/` |
 
 **Silo temático y enlazado interno:** cada spoke enlaza a su pillar con texto ancla descriptivo, y cada pillar enlaza a sus spokes y a la herramienta del mismo tema. Las herramientas enlazan de vuelta a la pillar y al artículo técnico relacionado. Esto concentra autoridad temática (E-E-A-T temático) y facilita que los motores generativos entiendan la relación entre piezas.
 
@@ -119,7 +119,7 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **Enfoque semántico / entidades** | Marketing Data Science, Server-Side Tracking, First-Party Data, Meta CAPI, GA4, GTM Server, Google Cloud Platform, BigQuery, Python, atribución, EMQ, ITP/ETP, SaaS, e-commerce, LATAM. |
 | **Criterios E-E-A-T** | Firmado por **Matías Chaud** (Cofundador · Data & Tecnología) con byline + author-box. JSON-LD `Article` + `Service` (en `@graph`) con autor, organización y fechas. Diagramas de arquitectura, scripts y tabla de impacto. |
 | **Estrategia AEO / GEO** | Párrafo `.answer` (~40 palabras) de definición. **Lista ordenada de 5 pasos** para migrar a server-side (optimizada para Featured Snippet de proceso). Tabla de impacto cuantitativo (+18–28% conversiones, EMQ 8.2–9.5/10, −200 ms en Core Web Vitals). |
-| **Enlazado interno (silo)** | → `/noticias/implementar-ga4-server-side-gcp/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/noticias/modelos-atribucion-marketing-python/`, `/herramientas/auditor-signal-loss-emq/`. |
+| **Enlazado interno (silo)** | → `/noticias/implementar-ga4-server-side-gcp/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/noticias/modelos-atribucion-marketing-python/`, `/herramientas/inspector-senal-tracking/`. |
 
 #### Pieza 5 · Spoke (artículo técnico de Noticias)
 | Campo | Definición |
@@ -135,22 +135,22 @@ Todas las URLs son **limpias** (carpeta + `index.html`, sin parámetros ni `.htm
 | **Enfoque semántico / entidades** | GA4 Server-Side, Google Cloud Platform, GTM Server, subdominio first-party, Core Web Vitals (INP/LCP), cabeceras HTTP, deduplicación de eventos, Stape.io. |
 | **Criterios E-E-A-T** | Autoría de Matías; JSON-LD `TechArticle` (con `proficiencyLevel`) y fechas; tutorial escrito desde la experiencia práctica en ingeniería de datos, con métricas propias de latencia y recuperación. |
 | **Estrategia AEO / GEO** | Respuesta directa autocontenida (~48 palabras) en el primer apartado. **Lista ordenada (paso a paso)** para Featured Snippet de proceso y fragmentos de código (`<code>`) que los modelos técnicos citan. Cifras reproducibles (+18–28% de conversiones, −200 ms). |
-| **Enlazado interno (silo)** | → pillar `/marketing-data-science/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/herramientas/auditor-signal-loss-emq/`. |
+| **Enlazado interno (silo)** | → pillar `/marketing-data-science/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/herramientas/inspector-senal-tracking/`. |
 
 #### Pieza 6 · Tool Landing Page (activo de linkbaiting)
 | Campo | Definición |
 |-------|------------|
 | **Tipo** | Herramienta interactiva (SoftwareApplication) |
 | **Ubicación** | Sección `/herramientas/` |
-| **URL sugerida** | `https://featuregrowth.cl/herramientas/auditor-signal-loss-emq/` |
-| **Title tag** | Auditor de Pérdida de Señal y Puntuación EMQ (Herramienta Gratuita) · Feature Growth |
-| **Meta description** | Auditor gratuito de pérdida de señal y EMQ: diagnóstico de calidad de tracking, bloqueo por adblockers y puntuación Event Match Quality para Meta Ads y Google Ads. |
-| **H1** | Auditor Técnico de Pérdida de Señal y Puntuación EMQ |
-| **H2** | 1. Diagnóstico de efectividad de seguimiento e impacto de adblockers<br>2. Consola de diagnóstico técnico de tracking |
-| **H3** | · Factores evaluados en el reporte de salud de datos |
-| **Enfoque semántico / entidades** | Auditoría de tracking, Event Match Quality (EMQ), signal loss, deduplicación de eventos, Meta CAPI, ITP/ETP, subdominio first-party. |
-| **Criterios E-E-A-T** | JSON-LD `SoftwareApplication` + autoría de Matías; metodología basada en la documentación oficial de Meta Developers y Google Tag Manager. |
-| **Estrategia AEO / GEO** | Interfaz de diagnóstico con entrada de URL. Activo de **Digital PR / linkbaiting** para recibir backlinks de medios de marketing y tecnología; candidato a citación como recurso recomendado por asistentes. |
+| **URL sugerida** | `https://featuregrowth.cl/herramientas/inspector-senal-tracking/` |
+| **Title tag** | Inspector de Señal de Tracking (Herramienta Gratuita) · Feature Growth |
+| **Meta description** | Inspector gratuito de señal de tracking: escaneo automático del marcado de eventos (GTM, GA4, Meta Pixel), deduplicación, PII sin hashear, consentimiento y server-side, con evidencia medida. |
+| **H1** | Inspector de Señal de Tracking |
+| **H2** | 1. ¿Qué tan sana está la señal de tu sitio?<br>2. Consola de escaneo<br>3. Cómo leer el reporte<br>4. Compartí tu badge de salud de tracking |
+| **H3** | · Qué mide el escáner<br>· Qué NO mide (y por qué) |
+| **Enfoque semántico / entidades** | Señal de tracking, deduplicación de eventos (`event_id`), Meta CAPI, PII/SHA-256, consentimiento (CMP / Consent Mode), server-side de primera parte, Google Tag Manager, GA4. |
+| **Criterios E-E-A-T** | JSON-LD `SoftwareApplication` + autoría de Matías; herramienta funcional con backend server-side propio (`functions/scan.js`) y metodología documentada en `docs/inspector-senal-tracking.md`. |
+| **Estrategia AEO / GEO** | Escáner interactivo con entrada de URL que devuelve un **reporte medido** (no simulado). Activo de **Digital PR / linkbaiting** para recibir backlinks de medios de marketing y tecnología; candidato a citación como recurso recomendado por asistentes. |
 | **Enlazado interno (silo)** | → pillar `/marketing-data-science/`, `/noticias/optimizar-event-match-quality-meta-capi/`, `/noticias/modelos-atribucion-marketing-python/`. |
 
 ---
@@ -189,7 +189,7 @@ La consigna pide justificar, **en al menos una pieza**, cómo podría posicionar
 | 3 | Fran | Tool | `/herramientas/calculadora-presupuesto-growth/` | calculadora presupuesto marketing B2B | Formulario interactivo |
 | 4 | Matías | Pillar | `/marketing-data-science/` | marketing data science | Respuesta directa + lista de 5 pasos + tabla |
 | 5 | Matías | Spoke | `/noticias/implementar-ga4-server-side-gcp/` | cómo implementar GA4 server-side | Lista ordenada (snippet de proceso) + código |
-| 6 | Matías | Tool | `/herramientas/auditor-signal-loss-emq/` | auditor tracking / EMQ | Formulario interactivo (linkbaiting) |
+| 6 | Matías | Tool | `/herramientas/inspector-senal-tracking/` | auditor tracking / EMQ | Formulario interactivo (linkbaiting) |
 
 ---
 

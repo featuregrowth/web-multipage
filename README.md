@@ -32,9 +32,9 @@ web-multipage/
 ├── growth-marketing-b2b/               → Pillar: Growth Marketing B2B
 ├── marketing-data-science/             → Pillar: Marketing Data Science
 ├── herramientas/
-│   ├── index.html                      → Herramientas (hub)
-│   ├── calculadora-presupuesto-growth/ → Herramienta: Calculadora de presupuesto B2B
-│   └── auditor-signal-loss-emq/        → Herramienta: Auditor de señal y EMQ
+│   ├── index.html                          → Herramientas (hub)
+│   ├── calculadora-presupuesto-growth/     → Herramienta: Calculadora de presupuesto B2B
+│   └── inspector-senal-tracking/           → Herramienta: Inspector de Señal de Tracking
 ├── prensa/                             → Sala de prensa / Media Kit
 ├── contacto.html                       → Contacto y redes sociales
 ├── aviso-legal.html                    → Aviso legal (noindex: público pero no indexable)
@@ -49,13 +49,19 @@ web-multipage/
 │   ├── tp-punto-4-offpage-citabilidad.md → TP final SEO+GEO · Punto 4 (off-page y citabilidad IA)
 │   ├── tp-punto-5-consideraciones-tecnicas.md → TP final SEO+GEO · Punto 5 (consideraciones técnicas)
 │   ├── tp-punto-6-dashboard-seguimiento.md → TP final SEO+GEO · Punto 6 (dashboard SEO + GEO)
-│   └── guia-ga4-gtm.md                   → Guía instructiva: medición GA4 + GTM (conceptos, pasos y debugging)
+│   ├── guia-ga4-gtm.md                   → Guía instructiva: medición GA4 + GTM (conceptos, pasos y debugging)
+│   └── inspector-senal-tracking.md       → Documentación técnica del Inspector de Señal de Tracking
 ├── css/
 │   └── styles.css                      → Estilos (paleta de marca, tipografía, responsive)
 ├── js/
 │   ├── main.js                         → Menú móvil, scroll, animaciones, año dinámico
-│   ├── tools.js                        → Lógica de la calculadora y el auditor
+│   ├── tools.js                        → Lógica de la calculadora B2B
+│   ├── inspector.js                    → Lógica del Inspector de Señal (escaneo y reporte)
 │   └── analytics.js                    → Helper de eventos (fgTrack → Data Layer); GTM va inline en el <head>
+├── functions/
+│   └── scan.js                         → Backend del Inspector (Netlify Function, sin dependencias)
+├── server.js                           → Servidor local: estático + /api/scan
+├── netlify.toml                        → Configuración de Netlify (publish + functions)
 ├── assets/
 │   ├── logo-mark.png                   → Logotipo FG · versión degradado (fondos claros)
 │   ├── logo-mark-light.png             → Logotipo FG · versión blanca (fondos oscuros)
@@ -95,6 +101,17 @@ Desde una terminal, dentro de la carpeta del proyecto:
 
 Dejalo corriendo mientras navegás. Para detenerlo: `Ctrl + C`.
 
+> Con **Node** instalado, `./ver-sitio.sh` usa `server.js`, que además levanta el
+> backend del **Inspector de Señal** (`/api/scan`). Sin Node cae a un servidor
+> estático de Python: la navegación funciona, pero el inspector no escaneará
+> (mostrará su modo de autoevaluación).
+
+También podés servir solo el backend/estático con:
+
+```bash
+node server.js          # http://localhost:8000 (estático + /api/scan)
+```
+
 ### Opción B — Servidor manual
 
 ```bash
@@ -123,6 +140,8 @@ incluido al final de la ruta).
 
 > No necesitas Git, ni consola, ni instalación.
 
+> **Funciones serverless:** Netlify Drop (arrastrar la carpeta) publica el sitio estático pero **no ejecuta** `functions/scan.js`. Para que el **Inspector de Señal** escanee de verdad, conectá el repositorio por **Git** o usá la **Netlify CLI** (Netlify detecta `netlify.toml`). Sin funciones, el inspector cae a su modo de autoevaluación.
+
 ### Opción B — GitHub Pages
 
 1. Crea un repositorio en GitHub (por ejemplo `featuregrowth-web`).
@@ -143,7 +162,7 @@ Vercel, Cloudflare Pages, Surge (`npx surge web-multipage`) o Firebase Hosting.
 
 - **Rutas relativas**: las páginas de `servicios/` usan `../`, por lo que no rompas la estructura de carpetas.
 - **Fuentes**: Montserrat e Inter se cargan desde Google Fonts (CDN). Requiere conexión.
-- **Sin backend**: el contacto usa enlaces directos (`mailto:` y WhatsApp). No hay formulario con servidor.
+- **Backend**: el sitio es estático salvo el **Inspector de Señal de Tracking**, que usa una **Netlify Function** (`functions/scan.js`) para escanear URLs del lado del servidor. Contacto y WhatsApp siguen usando enlaces directos (`mailto:`), sin formulario con servidor.
 - **WhatsApp**: el número es de ejemplo (`+56 9 0000 0000`). Reemplázalo en `contacto.html` e `index.html`
   (busca `wa.me/56900000000`).
 
@@ -220,6 +239,10 @@ a través de Google Tag Manager: conceptos clave (etiqueta, disparador, variable
 creación de la propiedad GA4 y obtención del **ID de medición `G-`**, conexión de GA4 dentro de GTM, eventos
 personalizados del proyecto, pruebas con **Vista previa / DebugView / Tiempo real**, checklist de publicación y
 solución de errores comunes.
+
+### Inspector de Señal de Tracking
+
+En **`docs/inspector-senal-tracking.md`** está la **documentación técnica** del Inspector: arquitectura, API del endpoint (`/.netlify/functions/scan`), los checks medidos, la rúbrica del *Índice de Señal*, la protección **SSRF**, cómo correrlo local y el *roadmap* (escaneo runtime y Tier 2 con acceso a Meta/GA4).
 
 ---
 

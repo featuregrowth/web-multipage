@@ -1,7 +1,7 @@
 /* ==========================================================================
    Feature Growth · Herramientas
    - Calculadora de presupuesto y ROI B2B
-   - Auditor de pérdida de señal (solicitud por email)
+   (El Inspector de Señal de Tracking usa js/inspector.js)
    ========================================================================== */
 
 (function () {
@@ -77,34 +77,6 @@
     });
   }
 
-  /* -------------------------------- Auditor -------------------------------- */
-  var auditorForm = document.getElementById("auditor-form");
-  if (auditorForm) {
-    var note = document.getElementById("auditor-note");
-    auditorForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var input = document.getElementById("auditor-url");
-      var url = input ? input.value.trim() : "";
-      if (!url) {
-        if (input) input.focus();
-        return;
-      }
-      var subject = encodeURIComponent("Solicitud de auditoría de pérdida de señal y EMQ");
-      var body = encodeURIComponent(
-        "Hola Feature Growth,\n\nQuiero una auditoría de tracking y EMQ para: " + url + "\n\nGracias."
-      );
-      window.location.href = "mailto:hola@featuregrowth.cl?subject=" + subject + "&body=" + body;
-      track("audit_emq_submit", {
-        event_category: "Technical Tool",
-        event_label: "Auditor Signal Loss"
-      });
-      if (note) {
-        note.textContent = "Abriendo tu cliente de correo con la solicitud para " + url + "…";
-        note.hidden = false;
-      }
-    });
-  }
-
   /* -------------------- Copiar al portapapeles + imprimir -------------------- */
   function copyToClipboard(text, done) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -134,9 +106,7 @@
       var note = btn.parentNode.querySelector(".copy-note");
       copyToClipboard(text, function () {
         var events = {
-          "#embed-calc-code": { name: "calc_b2b_embed_copy", category: "Lead Generation", label: "Calculadora Presupuesto B2B" },
-          "#embed-badge-code": { name: "audit_emq_badge_copy", category: "Linkbaiting Engagement", label: "Auditor Signal Loss" },
-          "#audit-summary": { name: "audit_emq_diagnosis_copy", category: "Linkbaiting Engagement", label: "Auditor Signal Loss" }
+          "#embed-calc-code": { name: "calc_b2b_embed_copy", category: "Lead Generation", label: "Calculadora Presupuesto B2B" }
         };
         var ev = events[target];
         if (ev) track(ev.name, { event_category: ev.category, event_label: ev.label });

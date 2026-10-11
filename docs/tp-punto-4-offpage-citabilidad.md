@@ -12,8 +12,8 @@
 | Página embebible | `herramientas/calculadora-presupuesto-growth/embed.html` | Versión sin navegación, pensada para `<iframe>` de terceros (con `noindex`). |
 | Código de inserción | Calculadora (sección "Embebé esta calculadora") | Snippet `<iframe>` + **backlink** de atribución a la tool. Botón "Copiar". |
 | Imprimir / Guardar PDF | Calculadora | Botón que llama a `window.print()` con estilos `@media print`. |
-| Badge de salud de tracking | Auditor (sección "Compartí tu badge") | HTML embebible con enlace a la tool. Botón "Copiar badge". |
-| Copiar diagnóstico | Auditor | Copia al portapapeles un marco de revisión con atribución y enlace. |
+| Badge de salud de tracking | Inspector (sección "Compartí tu badge") | HTML embebible con enlace a la tool. Botón "Copiar badge". |
+| Copiar diagnóstico | Inspector | Copia al portapapeles un marco de revisión con atribución y enlace. |
 | Open Graph / Twitter Card | Ambas tools | `og:title/description/url/type/image` para compartir en LinkedIn y redes. |
 
 ### Bloque 2 — Digital PR (informes + Media Kit)
