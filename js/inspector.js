@@ -213,12 +213,12 @@
 
   /* --------------------- Fallback: autoevaluación ----------------------- */
   var QUIZ = [
-    { q: "¿Tiene GTM o gtag instalado y publicado?", w: 15 },
+    { q: "¿Tienes GTM o gtag instalado y publicado?", w: 15 },
     { q: "¿GA4 recibe eventos en tiempo real?", w: 15 },
-    { q: "¿Envía el mismo event_id en el Pixel y en Meta CAPI?", w: 20 },
-    { q: "¿Hashea la PII (SHA-256) antes de enviarla a las plataformas?", w: 15 },
+    { q: "¿Envías el mismo event_id en el Pixel y en Meta CAPI?", w: 20 },
+    { q: "¿Hasheas la PII (SHA-256) antes de enviarla a las plataformas?", w: 15 },
     { q: "¿Una CMP/Consent Mode bloquea los tags hasta el consentimiento?", w: 15 },
-    { q: "¿Tiene un subdominio server-side de primera parte activo?", w: 20 }
+    { q: "¿Tienes un subdominio server-side de primera parte activo?", w: 20 }
   ];
 
   function renderQuiz() {
@@ -239,7 +239,7 @@
       '<div class="report__head">' +
         '<p class="report__eyebrow">Autoevaluación · <span class="tag tag--estimated">Estimado</span></p>' +
         "<h3 class=\"report__url\">El escáner no está disponible en este despliegue</h3>" +
-        '<p class="report__meta">El backend server-side no está activo. Mientras tanto, complete esta autoevaluación para obtener un índice orientativo.</p>' +
+        '<p class="report__meta">El backend server-side no está activo. Mientras tanto, completa esta autoevaluación para obtener un índice orientativo.</p>' +
       "</div>" +
       '<ul class="quiz" id="quiz-list">' + items + "</ul>" +
       '<div class="report__actions">' +
@@ -270,7 +270,7 @@
         '<p class="signal-card__label">Índice estimado (autoevaluación)</p>' +
         '<p class="signal-card__value">' + value + '<span>/100</span></p>' +
         '<div class="signal-bar"><div class="signal-bar__fill" style="width:' + value + '%"></div></div>' +
-        '<p class="signal-card__note">Estimación según sus respuestas. Para medirlo de verdad, necesita el escáner activo o un diagnóstico con acceso.</p>';
+        '<p class="signal-card__note">Estimación según tus respuestas. Para medirlo de verdad, necesita el escáner activo o un diagnóstico con acceso.</p>';
       box.hidden = false;
       track("inspector_quiz_score", { event_category: "Technical Tool", value: value });
     });
