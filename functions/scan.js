@@ -484,10 +484,10 @@ exports.handler = async function (event) {
     return json(405, { error: "Método no permitido" });
   }
 
-  if (!url) return json(400, { error: "Ingresá la URL del sitio a escanear." });
+  if (!url) return json(400, { error: "Ingrese la URL del sitio a escanear." });
 
   if (isRateLimited(clientIp(event))) {
-    return json(429, { error: "Demasiadas solicitudes. Probá de nuevo en un rato." });
+    return json(429, { error: "Demasiadas solicitudes. Pruebe de nuevo en un rato." });
   }
 
   try {
